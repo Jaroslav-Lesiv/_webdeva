@@ -219,7 +219,7 @@ var _renderExamples = function _renderExamples(json) {
 
     var _cardMedia = exampleListItemMedia.cloneNode(true);
     var _img = img.cloneNode(true);
-    _img.src = "/img/examples/" + example.img;
+    _img.src = "./img/examples/" + example.img;
 
     // const pageShape = img.cloneNode(true)
     // pageShape.src = '/img/page-shape.jpg'
