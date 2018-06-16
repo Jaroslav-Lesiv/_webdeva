@@ -10,13 +10,18 @@ var uglify = require("gulp-uglify");
 var plumber = require("gulp-plumber");
 var browserSync = require('browser-sync').create();
 // var clean = require("gulp-clean");
-var ghPages = require('gulp-gh-pages');
+// var ghPages = require('gulp-gh-pages');
  
-gulp.task('deploy', () => {
-  return gulp.src('./build/**/*')
-    .pipe(ghPages());
+// gulp.task('deploy', () => {
+//   return gulp.src('./build/**/*')
+//     .pipe(ghPages());
+// });
+var deploy = require('gulp-gh-pages');
+ 
+gulp.task('deploy', function () {
+    return gulp.src('./build/**/*')
+        .pipe(deploy());
 });
-
 const paths = {
   stylus: ["./src/assets/styl/*.styl"],
   js: ["./src/assets/js/*.js"],
