@@ -2,7 +2,7 @@
 {
     font-family: 'Rubik'; /* Имя шрифта */
 
-    src: url('/fonts/Rubik-Medium.ttf'); /* Путь к файлу со шрифтом */
+    src: url('fonts/Rubik-Medium.ttf'); /* Путь к файлу со шрифтом */
 }
 body
 {
@@ -1374,7 +1374,7 @@ blockquote
 
     border: 8px solid #43a39f;
     border-radius: 50%;
-    background: url('./img/avatar.png');
+    background: url('img/avatar.png');
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
