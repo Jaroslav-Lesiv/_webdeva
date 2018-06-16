@@ -13,7 +13,7 @@ var browserSync = require('browser-sync').create();
 var ghPages = require('gulp-gh-pages');
  
 gulp.task('deploy', () => {
-  return gulp.src('build/**/*')
+  return gulp.src('./build/**/*')
     .pipe(ghPages());
 });
 
