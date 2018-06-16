@@ -222,7 +222,7 @@ const _renderExamples = json => {
 
     const _cardMedia = exampleListItemMedia.cloneNode(true);
     const _img = img.cloneNode(true);
-    _img.src = `/img/examples/${example.img}`;
+    _img.src = `./img/examples/${example.img}`;
 
     // const pageShape = img.cloneNode(true)
     // pageShape.src = '/img/page-shape.jpg'

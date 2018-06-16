@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "deploy": "node ./scripts/deploy",
     "watch": "gulp watch",
     "build": "gulp"
   },
