@@ -93,7 +93,7 @@ var blossom = function blossom() {
   }
 };
 
-blossom();
+// blossom();
 
 // examples
 
