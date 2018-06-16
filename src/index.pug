@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+html(lang="en")
+  include ./includes/head.pug
+  
+  body
+    //- #background.background
+    .wrapper
+      include ./includes/nav.pug
+      
+      main.main
+        section.section
+          #particles-js.particles-js
+          #about.container.flex-align-center
+            include ./includes/about.pug
+        #skills.container.flex-align-center.section-rotate.section-dark
+          include ./includes/skills.pug
+        #examples.container.flex-align-top
+          include ./includes/examples.pug
+
+        #services.container.flex-align-center.section-rotate.section-dark.section-rotate-not-rotateContent
+          include ./includes/services.pug
+        #about.container.flex-align-center
+            include ./includes/about.pug
+        //- include ./includes/.pug
+        
+    script(src="/js/particles.js")
+    script(src="/js/main.js")
+    
+    
+        
