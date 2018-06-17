@@ -2,6 +2,8 @@
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
+function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var create = function create(tagname) {
@@ -94,6 +96,81 @@ var blossom = function blossom() {
 };
 
 // blossom();
+
+var navLinks = document.querySelectorAll('#nav ul.list li a');
+
+var ScrollBy = function () {
+  function ScrollBy(_ref2) {
+    var _this = this;
+
+    var _ref2$links = _ref2.links,
+        links = _ref2$links === undefined ? [] : _ref2$links;
+
+    _classCallCheck(this, ScrollBy);
+
+    this.links = [].concat(_toConsumableArray(links));
+    this.active = null;
+    this.hashes = [].concat(_toConsumableArray(this.links.map(function (link) {
+      return link.getAttribute('href');
+    })));
+    window.addEventListener('scroll', function (_) {
+      return _this.sectionHandler();
+    });
+    this.linksHandler();
+  }
+
+  _createClass(ScrollBy, [{
+    key: "sectionHandler",
+    value: function sectionHandler() {
+      var _this2 = this;
+
+      var windowHeight = document.documentElement.clientHeight;
+      var stack = [];
+      this.hashes.forEach(function (hash, idx) {
+        var section = document.querySelector(hash);
+        var coords = section.getBoundingClientRect();
+        var isCurrent = coords.top >= 0 || coords.bottom - 23 > 0;
+        if (isCurrent && !stack.length) {
+          stack.push(hash);
+          _this2.hash = hash;
+          console.log(hash, idx, window.pageYOffset, coords.top, coords.bottom);
+          _this2.updateNavigation();
+        }
+      });
+    }
+  }, {
+    key: "linksHandler",
+    value: function linksHandler() {
+      var _this3 = this;
+
+      this.links.forEach(function (link) {
+        var hash = link.addEventListener('click', function (event) {
+          event.preventDefault();
+          _this3.hash = link.getAttribute('href');
+          _this3.updateSections();
+        });
+      });
+    }
+  }, {
+    key: "updateNavigation",
+    value: function updateNavigation() {
+      var _this4 = this;
+
+      console.log(this.hash);
+      this.links.forEach(function (link) {
+        return link.getAttribute('href') === _this4.hash ? link.classList.add('btn-primary') : link.classList.remove('btn-primary');
+      });
+    }
+  }, {
+    key: "updateSections",
+    value: function updateSections() {
+      window.scrollTo(0, document.querySelector(this.hash).offsetTop);
+    }
+  }]);
+
+  return ScrollBy;
+}();
+var yyy = new ScrollBy({ links: navLinks });
 
 // examples
 
@@ -503,10 +580,10 @@ particlesJS("particles-js", {
 var loadImages = document.querySelectorAll('.lazy-load') || [];
 
 var LazyLoad = function () {
-  function LazyLoad(_ref2) {
-    var _this = this;
+  function LazyLoad(_ref3) {
+    var _this5 = this;
 
-    var images = _ref2.images;
+    var images = _ref3.images;
 
     _classCallCheck(this, LazyLoad);
 
@@ -514,17 +591,17 @@ var LazyLoad = function () {
 
     console.log(this.images);
     window.addEventListener('scroll', function () {
-      return _this.checkPosition();
+      return _this5.checkPosition();
     });
   }
 
   _createClass(LazyLoad, [{
     key: "checkPosition",
     value: function checkPosition() {
-      var _this2 = this;
+      var _this6 = this;
 
       this.images.length && this.images.forEach(function (image) {
-        return _this2.isVisible(image) ? _this2.showImage(image) : undefined;
+        return _this6.isVisible(image) ? _this6.showImage(image) : undefined;
       });
     }
   }, {
