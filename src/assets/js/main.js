@@ -93,7 +93,57 @@ const blossom = () => {
   }
 };
 
-blossom();
+// blossom();
+
+const navLinks = document.querySelectorAll('#nav ul.list li a')
+
+const ScrollBy = class {
+  constructor({ links = [] }) {
+    this.links = [...links]
+    this.active = null
+    this.hashes = [...this.links.map( link => link.getAttribute('href') )]
+    window.addEventListener('scroll', _ => this.sectionHandler())
+    this.linksHandler()
+  }
+
+  sectionHandler() {
+    const windowHeight = document.documentElement.clientHeight;
+    let stack = []    
+    this.hashes.forEach( (hash, idx) => {
+      const section = document.querySelector(hash)
+      const coords = section.getBoundingClientRect();
+      const isCurrent = coords.top >= 0 || coords.bottom - 23 > 0
+      if ( isCurrent && !stack.length ) {
+        stack.push(hash)
+        this.hash = hash
+        console.log(hash,idx, window.pageYOffset ,coords.top , coords.bottom)
+        this.updateNavigation()
+      }
+    } )
+  }
+
+  linksHandler() {
+    this.links.forEach( link => {
+      const hash = 
+      link.addEventListener('click', event => {
+        event.preventDefault()
+        this.hash = link.getAttribute('href')
+        this.updateSections()
+      })
+    } )
+  }
+  updateNavigation() {
+    console.log(this.hash)
+    this.links.forEach( link => link.getAttribute('href') === this.hash ? link.classList.add('btn-primary') : link.classList.remove('btn-primary'))
+  }
+
+  updateSections() {
+    window.scrollTo(0, document.querySelector(this.hash).offsetTop)
+  }
+
+
+}
+const yyy = new ScrollBy({ links: navLinks })
 
 // examples
 
