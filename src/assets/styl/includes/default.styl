@@ -19,7 +19,7 @@ body
     margin: 0
     padding: 0
     box-sizing: border-box
-    scroll-behavior: smooth
+    // scroll-behavior: smooth
 
 
 .particles-js
@@ -120,6 +120,8 @@ ul
             justify-content: flex-end
         &-start
             justify-content: flex-start
+    &-grow
+        flex-grow: 1
 .list
     margin: 0
     padding: 0
@@ -221,17 +223,6 @@ strong
 img
     width: 100%
     height: auto
-    &::before
-        content: ''
-        background-image: url(/img/no-image.png)
-        background-size: cover
-        background-position: center
-        background-repeat: no-repeat
-        position absolute
-        top: 0
-        left: 0
-        right: 0
-        bottom: 0
 
 .hide
     opacity 0

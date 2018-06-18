@@ -223,86 +223,7 @@ i {
   animation-fill-mode: forwards
   opacity: 0
 
-@keyframes blossom-0 {
-  0% {
-     transform:scale(0) rotate(0);
-  }
-  100% {
-   transform:scale(0.5) rotate(30deg);
-  }
-}
-@keyframes blossom-1 {
-  0% {
-     transform:scale(0) rotate(0);
-  }
-  100% {
-   transform:scale(0.75) rotate(60deg);
-  }
-}
-@keyframes blossom-2 {
-  0% {
-     transform:scale(0.5) rotate(0);
-  }
-  100% {
-   transform:scale(0.6) rotate(45deg);
-  }
-}
-@keyframes blossom-3 {
-  0% {
-     transform:scale(0.3) rotate(0);
-  }
-  100% {
-   transform:scale(0.8) rotate(30deg);
-  }
-}
-@keyframes blossom-4 {
-  0% {
-     transform:scale(0.7) rotate(0);
-  }
-  100% {
-   transform:scale(0.9) rotate(45deg);
-  }
-}
-@keyframes blossom-5 {
-  0% {
-     transform:scale(0.6) rotate(0);
-  }
-  100% {
-   transform:scale(0.78) rotate(60deg);
-  }
-}
-@keyframes blossom-6 {
-  0% {
-     transform:scale(0.6) rotate(0);
-  }
-  100% {
-   transform:scale(0.9) rotate(30deg);
-  }
-}
-@keyframes blossom-7 {
-  0% {
-     transform:scale(0.5) rotate(0);
-  }
-  100% {
-   transform:scale(1) rotate(60deg);
-  }
-}
-@keyframes blossom-8 {
-  0% {
-     transform:scale(0.3) rotate(0);
-  }
-  100% {
-   transform:scale(1.1) rotate(45deg);
-  }
-}
-@keyframes blossom-9 {
-  0% {
-     transform:scale(1.2) rotate(0);
-  }
-  100% {
-   transform:scale(0.4) rotate(30deg);
-  }
-}
+
 @keyframes show_scale {
     0% {
      transform:scale(0.33);
@@ -378,9 +299,9 @@ i {
 
 
 .show_scale {
-        animation-name: show_scale
-        animation-duration: ($duration)s
-    }
+    animation-name: show_scale
+    animation-duration: ($duration)s
+}
 
 .hide_scale {
     animation-name: hide_scale
@@ -405,9 +326,12 @@ i {
   animation-iteration-count:infinite;
   animation-fill-mode:forwards;
   animation-direction:alternate;
+
 }
 .transition
   transition: ($duration)s
+  animation-duration: ($duration)s
+  animation-fill-mode:forwards;
 // for num in (1..30)
 //   {selector('.skill-' + num)}
 //     animation-delay: (num*50)ms
