@@ -2,6 +2,8 @@
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
+var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"]) _i["return"](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError("Invalid attempt to destructure non-iterable instance"); } }; }();
+
 function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -17,6 +19,7 @@ var ul = create("ul");
 var li = create("li");
 var strong = create("strong");
 var a = create("a");
+var h3 = create("h3");
 var p = create("p");
 var img = create("img");
 var button = create("button");
@@ -25,152 +28,219 @@ var snakeLink = a.cloneNode(true);
 snakeLink.className = "snake";
 
 var dot = span.cloneNode();
-dot.className = 'dot';
+dot.className = "dot";
 
 var pageShapeUrl = span.cloneNode();
-pageShapeUrl.className = 'page-shape-url';
+pageShapeUrl.className = "page-shape-url";
 
 var pageShape = div.cloneNode();
-pageShape.className = 'page-shape';
+pageShape.className = "page-shape";
 
 pageShape.append(dot.cloneNode());
 pageShape.append(dot.cloneNode());
 pageShape.append(dot.cloneNode());
 
-var grnStyle = function grnStyle() {
-  var s = Math.floor(Math.random() * 10);
-  var t = Math.floor(Math.random() * 4000 + 1000);
-  var x = Math.random() * 80;
-  var y = Math.random() * 80;
-  return {
-    s: s,
-    t: t,
-    x: x,
-    y: y
-  };
-};
+// const grnStyle = () => {
+//   let s = Math.floor(Math.random() * 10);
+//   let t = Math.floor(Math.random() * 4000 + 1000);
+//   let x = Math.random() * 80;
+//   let y = Math.random() * 80;
+//   return {
+//     s,
+//     t,
+//     x,
+//     y
+//   };
+// };
 
-var setStyle = function setStyle(_ref, i) {
-  var s = _ref.s,
-      t = _ref.t,
-      x = _ref.x,
-      y = _ref.y;
+var setStyle = function setStyle(selector) {
+  var styles = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
 
-  i.style.top = x + "%";
-  i.style.left = y + "%";
-  i.style.animationDuration = t + "ms";
-  i.style.animationName = "blossom-" + s;
-  i.style.transition = t + "ms ease-in-out";
-};
-var icons = ["react", "babel", "bootstrap", "css3", "html5", "gulp", "vue", "github_alt", "bitbucket", "jira", "npm", "nodejs", "sass", "less", "stylus", "linux", "android", "apple", "vscode", "atom"];
-var blossom = function blossom() {
-  var _loop = function _loop(i) {
-    var icon = document.createElement("i");
-    icon.className = "devicons devicons-" + icons[i];
-    icon.style.fontSize = "80px";
+  console.log(styles);
+  var _iteratorNormalCompletion = true;
+  var _didIteratorError = false;
+  var _iteratorError = undefined;
 
-    var _grnStyle = grnStyle(),
-        s = _grnStyle.s,
-        t = _grnStyle.t,
-        x = _grnStyle.x,
-        y = _grnStyle.y;
+  try {
+    for (var _iterator = Object.entries(styles)[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+      var _ref = _step.value;
 
-    requestAnimationFrame(function () {
-      return setStyle({
-        s: s,
-        t: t,
-        x: x,
-        y: y
-      }, icon);
-    });
-    setInterval(function () {
-      return setStyle(grnStyle(), icon);
-    }, t * 4);
-    var about = document.querySelector("#nav");
-    about.append(icon);
-  };
+      var _ref2 = _slicedToArray(_ref, 2);
 
-  for (var i = 0; i < icons.length; i++) {
-    _loop(i);
+      var key = _ref2[0];
+      var value = _ref2[1];
+
+      selector.style[key] = value;
+    }
+  } catch (err) {
+    _didIteratorError = true;
+    _iteratorError = err;
+  } finally {
+    try {
+      if (!_iteratorNormalCompletion && _iterator.return) {
+        _iterator.return();
+      }
+    } finally {
+      if (_didIteratorError) {
+        throw _iteratorError;
+      }
+    }
   }
 };
+// const icons = [
+//   `react`,
+//   `babel`,
+//   `bootstrap`,
+//   "css3",
+//   "html5",
+//   "gulp",
+//   "vue",
+//   "github_alt",
+//   "bitbucket",
+//   "jira",
+//   "npm",
+//   "nodejs",
+//   "sass",
+//   "less",
+//   "stylus",
+//   "linux",
+//   "android",
+//   "apple",
+//   "vscode",
+//   "atom"
+// ];
+// const blossom = () => {
+//   for (let i = 0; i < icons.length; i++) {
+//     let icon = document.createElement("i");
+//     icon.className = `devicons devicons-${icons[i]}`;
+//     icon.style.fontSize = `80px`;
+//     const { s, t, x, y } = grnStyle();
+
+//     requestAnimationFrame(() =>
+//       setStyle(
+//         {
+//           s,
+//           t,
+//           x,
+//           y
+//         },
+//         icon
+//       )
+//     );
+//     setInterval(() => setStyle(grnStyle(), icon), t * 4);
+//     const about = document.querySelector("#nav");
+//     about.append(icon);
+//   }
+// };
 
 // blossom();
 
-var navLinks = document.querySelectorAll('#nav ul.list li a');
+var navLinks = document.querySelectorAll("#nav ul.list li a");
 
-var ScrollBy = function () {
-  function ScrollBy(_ref2) {
+var ScrollControl = function () {
+  function ScrollControl(_ref3) {
     var _this = this;
 
-    var _ref2$links = _ref2.links,
-        links = _ref2$links === undefined ? [] : _ref2$links;
+    var _ref3$links = _ref3.links,
+        links = _ref3$links === undefined ? [] : _ref3$links;
 
-    _classCallCheck(this, ScrollBy);
+    _classCallCheck(this, ScrollControl);
 
-    this.links = [].concat(_toConsumableArray(links));
-    this.active = null;
-    this.hashes = [].concat(_toConsumableArray(this.links.map(function (link) {
-      return link.getAttribute('href');
+    this.hash = null;
+
+    this.links = [].concat(_toConsumableArray(links)).map(function (link) {
+      return {
+        selector: link,
+        hash: link.getAttribute("href")
+      };
+    });
+    this.nodeList = [].concat(_toConsumableArray(this.links.map(function (link) {
+      return {
+        selector: document.querySelector(link.hash),
+        hash: link.hash
+      };
     })));
-    window.addEventListener('scroll', function (_) {
+
+    window.addEventListener("scroll", function (_) {
       return _this.sectionHandler();
     });
     this.linksHandler();
   }
 
-  _createClass(ScrollBy, [{
+  _createClass(ScrollControl, [{
     key: "sectionHandler",
     value: function sectionHandler() {
-      var _this2 = this;
-
       var windowHeight = document.documentElement.clientHeight;
-      var stack = [];
-      this.hashes.forEach(function (hash, idx) {
-        var section = document.querySelector(hash);
-        var coords = section.getBoundingClientRect();
-        var isCurrent = coords.top >= 0 || coords.bottom - 23 > 0;
-        if (isCurrent && !stack.length) {
-          stack.push(hash);
-          _this2.hash = hash;
-          console.log(hash, idx, window.pageYOffset, coords.top, coords.bottom);
-          _this2.updateNavigation();
+      var _iteratorNormalCompletion2 = true;
+      var _didIteratorError2 = false;
+      var _iteratorError2 = undefined;
+
+      try {
+        for (var _iterator2 = this.nodeList[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
+          var node = _step2.value;
+
+          var coords = node.selector.getBoundingClientRect();
+          var isCurrent = coords.top >= 0 || coords.bottom - 23 > 0;
+          if (isCurrent) {
+            this.hash = node.hash;
+            this.updateNavigation();
+            break;
+          }
         }
-      });
+      } catch (err) {
+        _didIteratorError2 = true;
+        _iteratorError2 = err;
+      } finally {
+        try {
+          if (!_iteratorNormalCompletion2 && _iterator2.return) {
+            _iterator2.return();
+          }
+        } finally {
+          if (_didIteratorError2) {
+            throw _iteratorError2;
+          }
+        }
+      }
     }
   }, {
     key: "linksHandler",
     value: function linksHandler() {
-      var _this3 = this;
+      var _this2 = this;
 
       this.links.forEach(function (link) {
-        var hash = link.addEventListener('click', function (event) {
+        link.selector.addEventListener("click", function (event) {
           event.preventDefault();
-          _this3.hash = link.getAttribute('href');
-          _this3.updateSections();
+          _this2.hash = link.hash;
+          _this2.updateSections();
         });
       });
     }
   }, {
     key: "updateNavigation",
     value: function updateNavigation() {
-      var _this4 = this;
+      var _this3 = this;
 
-      console.log(this.hash);
       this.links.forEach(function (link) {
-        return link.getAttribute('href') === _this4.hash ? link.classList.add('btn-primary') : link.classList.remove('btn-primary');
+        return link.hash === _this3.hash ? link.selector.classList.add("btn-primary") : link.selector.classList.remove("btn-primary");
       });
     }
   }, {
     key: "updateSections",
     value: function updateSections() {
-      window.scrollTo(0, document.querySelector(this.hash).offsetTop);
+      var _this4 = this;
+
+      window.scrollTo({
+        top: this.nodeList.find(function (node) {
+          return node.hash === _this4.hash;
+        }).selector.offsetTop,
+        behavior: "smooth"
+      });
     }
   }]);
 
-  return ScrollBy;
+  return ScrollControl;
 }();
-var yyy = new ScrollBy({ links: navLinks });
+var yyy = new ScrollControl({ links: navLinks });
 
 // examples
 
@@ -181,35 +251,47 @@ var json = JSON.stringify({
     url: "https://normalgame.net",
     sortKey: "web,react",
     img: "normalgame.png",
-    use: [{ label: 'React', url: 'https://reactjs.org/' }, { label: 'redux', url: 'https://redux.js.org/' }, { label: 'redux-saga', url: 'https://github.com/redux-saga/redux-saga' }, { label: 'webpack', url: 'https://webpack.js.org/' }, { label: 'styled-components', url: 'https://www.styled-components.com/' }, { label: 'Laravel', url: 'http://laravel.su/' }],
+    use: [{ label: "React", url: "https://reactjs.org/" }, { label: "redux", url: "https://redux.js.org/" }, {
+      label: "redux-saga",
+      url: "https://github.com/redux-saga/redux-saga"
+    }, { label: "webpack", url: "https://webpack.js.org/" }, {
+      label: "styled-components",
+      url: "https://www.styled-components.com/"
+    }, { label: "Laravel", url: "http://laravel.su/" }],
     description: "Using: React, Redux, Webpack, recompose, styled-components, redux-saga"
   }, {
     label: "JustLabelMe",
     url: "https://just-label.me",
     sortKey: "web",
     img: "justlabelme.png",
-    use: [{ label: 'JavaScript', url: 'https://www.javascript.com/' }, { label: 'stylus', url: 'http://stylus-lang.com/' }, { label: 'gulp', url: 'https://gulpjs.com/' }],
+    use: [{ label: "JavaScript", url: "https://www.javascript.com/" }, { label: "stylus", url: "http://stylus-lang.com/" }, { label: "gulp", url: "https://gulpjs.com/" }],
     description: "With JustLabelMe service, you\u2019ll save a lot of time because you can print perfectly onto 4\u201Dx6\u201D sticker labels, peel them and place them right on the package!"
   }, {
     label: "JustLabelMe Extension",
     url: "https://chrome.google.com/webstore/detail/justlabelme/bpfpmjjojjekdeliaeepcnccikcjpiph",
     sortKey: "web,extension",
     img: "justlabelme_ext.jpg",
-    use: [{ label: 'React', url: 'https://reactjs.org/' }, { label: 'redux', url: 'https://redux.js.org/' }, { label: 'webpack', url: 'https://webpack.js.org/' }, { label: 'styled-components', url: 'https://www.styled-components.com/' }],
+    use: [{ label: "React", url: "https://reactjs.org/" }, { label: "redux", url: "https://redux.js.org/" }, { label: "webpack", url: "https://webpack.js.org/" }, {
+      label: "styled-components",
+      url: "https://www.styled-components.com/"
+    }],
     description: "Provides the ability to transform & print FBA shipping and product labels while you are on Amazon Seller Central with a single click"
   }, {
     label: "Widin",
     url: "https://codingchipmunks.com/widin/",
     sortKey: "web",
     img: "widin.png",
-    use: [{ label: 'JavaScript', url: 'https://www.javascript.com/' }, { label: 'stylus', url: 'http://stylus-lang.com/' }, { label: 'pug (jade)', url: 'https://pugjs.org/api/getting-started.html' }, { label: 'gulp', url: 'https://gulpjs.com/' }],
+    use: [{ label: "JavaScript", url: "https://www.javascript.com/" }, { label: "stylus", url: "http://stylus-lang.com/" }, {
+      label: "pug (jade)",
+      url: "https://pugjs.org/api/getting-started.html"
+    }, { label: "gulp", url: "https://gulpjs.com/" }],
     description: "WidinOnline is a decentralized multifaceted market place set to unify the entire commerce landscape of Africa into a sigle inegrated e-commerce platform"
   }, {
     label: "nomis",
     url: "https://nomis.com.ua/",
     sortKey: "web",
     img: "nomis.png",
-    use: [{ label: 'JavaScript', url: 'https://www.javascript.com/' }, { label: 'jQuery', url: 'https://jquery.com/' }, { label: 'sass', url: 'https://sass-lang.com/' }, { label: 'blade', url: 'http://laravel.su/docs/5.3/blade' }, { label: 'gulp', url: 'https://gulpjs.com/' }, { label: 'Laravel', url: 'http://laravel.su/' }],
+    use: [{ label: "JavaScript", url: "https://www.javascript.com/" }, { label: "jQuery", url: "https://jquery.com/" }, { label: "sass", url: "https://sass-lang.com/" }, { label: "blade", url: "http://laravel.su/docs/5.3/blade" }, { label: "gulp", url: "https://gulpjs.com/" }, { label: "Laravel", url: "http://laravel.su/" }],
     description: "Check the reliability and solvency of the counterparty"
   }]
 });
@@ -278,17 +360,17 @@ var _renderExamples = function _renderExamples(json) {
     var _use = strong.cloneNode(true);
 
     var _useWrapper = p.cloneNode();
-    _use.innerHTML = 'Use: ';
+    _use.innerHTML = "Use: ";
     _useWrapper.append(_use);
 
     example.use.forEach(function (use, idx) {
       var _link = a.cloneNode();
       _link.href = use.url;
-      _link.className = 'snake card-link';
-      _link.target = '_blank';
-      _link.innerHTML = "" + use.label + (idx === example.use.length - 1 ? '' : ',');
-      _link.style.display = 'inline-flex';
-      _link.style.flexWrap = 'wrap';
+      _link.className = "snake card-link";
+      _link.target = "_blank";
+      _link.innerHTML = "" + use.label + (idx === example.use.length - 1 ? "" : ",");
+      _link.style.display = "inline-flex";
+      _link.style.flexWrap = "wrap";
       _useWrapper.append(_link);
     });
 
@@ -381,246 +463,273 @@ _renderExamples(data);
 //   requestAnimationFrame(checkScroll);
 // });
 
-document.querySelectorAll('.animated').forEach(function (selector) {
-  var _selector$dataset = selector.dataset,
-      animate = _selector$dataset.animate,
-      start = _selector$dataset.start;
-
-
-  switch (start) {
-    case 'load':
-      document.addEventListener('DOMContentLoaded', function () {
-        selector.classList.add(animate);
-      });
-    case 'scroll':
-      window.addEventListener('scroll', function () {
-        // console.log((window.scrollY + window.innerHeight / 3) >= selector.getBoundingClientRect().top, (window.scrollY + window.innerHeight / 3), selector.getBoundingClientRect().top)
-        if (selector.getBoundingClientRect().top <= window.innerHeight / 1.5) {
-          selector.classList.add(animate);
-        }
-      });
-
-      break;
-
-    default:
-      break;
-  }
-});
-// ANIMATION
-
-// var TxtRotate = function(el, toRotate, period) {
-//   this.toRotate = toRotate;
-//   this.el = el;
-//   this.loopNum = 0;
-//   this.period = parseInt(period, 10) || 2000;
-//   this.txt = '';
-//   this.tick();
-//   this.isDeleting = false;
-// };
-
-// TxtRotate.prototype.tick = function() {
-//   var i = this.loopNum % this.toRotate.length;
-//   var fullTxt = this.toRotate[i];
-
-//   if (this.isDeleting) {
-//     this.txt = fullTxt.substring(0, this.txt.length - 1);
-//   } else {
-//     this.txt = fullTxt.substring(0, this.txt.length + 1);
-//   }
-
-//   this.el.innerHTML = this.txt;
-
-//   var that = this;
-//   var delta = 300 - Math.random() * 100;
-
-//   if (this.isDeleting) { delta /= 2; }
-
-//   if (!this.isDeleting && this.txt === fullTxt) {
-//     delta = this.period;
-//     this.isDeleting = true;
-//   } else if (this.isDeleting && this.txt === '') {
-//     this.isDeleting = false;
-//     this.loopNum++;
-//     delta = 500;
-//   }
-
-//   setTimeout(function() {
-//     that.tick();
-//   }, delta);
-// };
-
-// window.onload = function() {
-//   var elements = document.getElementsByClassName('txt-rotate');
-//   for (var i=0; i<elements.length; i++) {
-//     var toRotate = elements[i].getAttribute('data-rotate');
-//     var period = elements[i].getAttribute('data-period');
-//     if (toRotate) {
-//       new TxtRotate(elements[i], JSON.parse(toRotate), period);
-//     }
-//   }
-// };
-
-
-// particles js
-/* ---- particles.js config ---- */
 
 particlesJS("particles-js", {
-  "particles": {
-    "number": {
-      "value": 40,
-      "density": {
-        "enable": true,
-        "value_area": 500
+  particles: {
+    number: {
+      value: 40,
+      density: {
+        enable: true,
+        value_area: 500
       }
     },
-    "color": {
-      "value": "#59DBD5"
+    color: {
+      value: "#59DBD5"
     },
-    "shape": {
-      "type": "circle",
-      "stroke": {
-        "width": 0,
-        "color": "#505050"
+    shape: {
+      type: "circle",
+      stroke: {
+        width: 0,
+        color: "#505050"
       },
-      "polygon": {
-        "nb_sides": 5
+      polygon: {
+        nb_sides: 5
       },
-      "image": {
-        "src": "img/github.svg",
-        "width": 100,
-        "height": 100
+      image: {
+        src: "img/github.svg",
+        width: 100,
+        height: 100
       }
     },
-    "opacity": {
-      "value": 0.5,
-      "random": false,
-      "anim": {
-        "enable": false,
-        "speed": 1,
-        "opacity_min": 0.1,
-        "sync": false
+    opacity: {
+      value: 0.5,
+      random: false,
+      anim: {
+        enable: false,
+        speed: 1,
+        opacity_min: 0.1,
+        sync: false
       }
     },
-    "size": {
-      "value": 3,
-      "random": true,
-      "anim": {
-        "enable": false,
-        "speed": 40,
-        "size_min": 0.1,
-        "sync": false
+    size: {
+      value: 3,
+      random: true,
+      anim: {
+        enable: false,
+        speed: 40,
+        size_min: 0.1,
+        sync: false
       }
     },
-    "line_linked": {
-      "enable": true,
-      "distance": 150,
-      "color": "#505050",
-      "opacity": 0.4,
-      "width": 1
+    line_linked: {
+      enable: true,
+      distance: 150,
+      color: "#505050",
+      opacity: 0.4,
+      width: 1
     },
-    "move": {
-      "enable": true,
-      "speed": 6,
-      "direction": "none",
-      "random": false,
-      "straight": false,
-      "out_mode": "out",
-      "bounce": false,
-      "attract": {
-        "enable": true,
-        "rotateX": 600,
-        "rotateY": 1200
+    move: {
+      enable: true,
+      speed: 6,
+      direction: "none",
+      random: false,
+      straight: false,
+      out_mode: "out",
+      bounce: false,
+      attract: {
+        enable: true,
+        rotateX: 600,
+        rotateY: 1200
       }
     }
   },
-  "interactivity": {
-    "detect_on": "canvas",
-    "events": {
-      "onhover": {
-        "enable": true,
-        "mode": "grab"
+  interactivity: {
+    detect_on: "canvas",
+    events: {
+      onhover: {
+        enable: true,
+        mode: "grab"
       },
-      "onclick": {
-        "enable": true,
-        "mode": "push"
+      onclick: {
+        enable: true,
+        mode: "push"
       },
-      "resize": true
+      resize: true
     },
-    "modes": {
-      "grab": {
-        "distance": 140,
-        "line_linked": {
-          "opacity": 1
+    modes: {
+      grab: {
+        distance: 140,
+        line_linked: {
+          opacity: 1
         }
       },
-      "bubble": {
-        "distance": 400,
-        "size": 40,
-        "duration": 2,
-        "opacity": 8,
-        "speed": 3
+      bubble: {
+        distance: 400,
+        size: 40,
+        duration: 2,
+        opacity: 8,
+        speed: 3
       },
-      "repulse": {
-        "distance": 200,
-        "duration": 0.4
+      repulse: {
+        distance: 200,
+        duration: 0.4
       },
-      "push": {
-        "particles_nb": 4
+      push: {
+        particles_nb: 4
       },
-      "remove": {
-        "particles_nb": 2
+      remove: {
+        particles_nb: 2
       }
     }
   },
-  "retina_detect": true
+  retina_detect: true
 });
+// bracket text
 
+var TextBracket = function () {
+  function TextBracket(_ref4) {
+    var selector = _ref4.selector;
+
+    _classCallCheck(this, TextBracket);
+
+    if (!selector) return;
+    this.selector = selector;
+    var _selector$dataset = this.selector.dataset,
+        _selector$dataset$key = _selector$dataset.keywords,
+        keywords = _selector$dataset$key === undefined ? [] : _selector$dataset$key,
+        _selector$dataset$dur = _selector$dataset.duration,
+        duration = _selector$dataset$dur === undefined ? 4000 : _selector$dataset$dur;
+
+    this.duration = duration;
+    this.words = keywords.split(",");
+
+    this.current = 0;
+    this.createNode();
+  }
+
+  _createClass(TextBracket, [{
+    key: "createNode",
+    value: function createNode() {
+      var bracket = div.cloneNode();
+      var before = h3.cloneNode();
+      var after = h3.cloneNode();
+      var wordWrap = div.cloneNode();
+      this.wordWrap = wordWrap;
+      var word = h3.cloneNode();
+
+      before.className = 'color-primary bold mr-10';
+      after.className = 'color-primary bold ml-10';
+
+      setStyle(word, {
+        display: 'inline-flex',
+        justifyContent: 'center',
+        textTransform: 'uppercase',
+        fontWeight: '400'
+      });
+
+      setStyle(bracket, {
+        display: "inline-flex"
+      });
+
+      setStyle(wordWrap, {
+        display: "flex",
+        overflow: 'hidden'
+      });
+
+      before.innerHTML = "[";
+      after.innerHTML = "]";
+
+      bracket.append(before, wordWrap, after);
+
+      var maxWidth = 0;
+      var maxHeight = 0;
+      this.wordsSelector = this.words.map(function (textWord) {
+        var _word = word.cloneNode(true);
+        _word.innerHTML = textWord;
+        return _word;
+      });
+      var wordSlider = div.cloneNode();
+      setStyle(wordSlider, {
+        display: 'flex',
+        flexDirection: 'column',
+        transition: '0.4s'
+      });
+      wordSlider.append.apply(wordSlider, _toConsumableArray(this.wordsSelector));
+      this.wordWrap.append(wordSlider);
+
+      this.selector.append(bracket);
+
+      this.maxWidth = wordSlider.offsetWidth + "px";
+      this.maxHeight = this.wordsSelector[0].offsetHeight;
+      setStyle(this.wordWrap, {
+        width: this.maxWidth,
+        height: this.maxHeight + "px",
+        position: "relative"
+      });
+      setStyle(wordSlider, {
+        position: 'absolute',
+        top: 0,
+        left: 0
+      });
+      this.wordSlider = wordSlider;
+      this.update();
+    }
+  }, {
+    key: "update",
+    value: function update() {
+      var _this5 = this;
+
+      console.log(this.current, this.maxHeight);
+      setStyle(this.wordSlider, {
+        transform: "translateY(-" + this.current * this.maxHeight + "px)"
+      });
+      this.current = this.current >= this.wordsSelector.length - 1 ? 0 : this.current + 1;
+
+      setTimeout(function () {
+        return _this5.update();
+      }, this.duration);
+    }
+  }]);
+
+  return TextBracket;
+}();
+var textBracket = document.querySelector(".text-bracket");
+new TextBracket({ selector: textBracket });
 // lazy loading
 
-var loadImages = document.querySelectorAll('.lazy-load') || [];
+var loadImages = document.querySelectorAll(".lazy-load") || [];
 
 var LazyLoad = function () {
-  function LazyLoad(_ref3) {
-    var _this5 = this;
+  function LazyLoad(_ref5) {
+    var _this6 = this;
 
-    var images = _ref3.images;
+    var images = _ref5.images;
 
     _classCallCheck(this, LazyLoad);
 
     this.images = images;
 
     console.log(this.images);
-    window.addEventListener('scroll', function () {
-      return _this5.checkPosition();
+    window.addEventListener("scroll", function () {
+      return _this6.checkPosition();
     });
   }
 
   _createClass(LazyLoad, [{
     key: "checkPosition",
     value: function checkPosition() {
-      var _this6 = this;
+      var _this7 = this;
 
       this.images.length && this.images.forEach(function (image) {
-        return _this6.isVisible(image) ? _this6.showImage(image) : undefined;
+        return _this7.isVisible(image) ? _this7.showImage(image) : undefined;
       });
     }
   }, {
     key: "isVisible",
     value: function isVisible(elem) {
-
       var coords = elem.getBoundingClientRect();
 
       var windowHeight = document.documentElement.clientHeight;
 
-      var topVisible = coords.top > 0 && coords.top < windowHeight;
-      var bottomVisible = coords.bottom < windowHeight && coords.bottom > 0;
+      var topVisible = coords.top + windowHeight / 2 > 0 && coords.top < windowHeight;
+      var bottomVisible = coords.bottom < windowHeight + windowHeight / 2 && coords.bottom > 0;
 
       return topVisible || bottomVisible;
     }
   }, {
     key: "showImage",
     value: function showImage(elem) {
-      var _src = elem.getAttribute('realsrc');
+      var _src = elem.getAttribute("realsrc");
       elem.src = _src;
       this.images = Array.prototype.slice.call(this.images).filter(function (image) {
         return image !== elem;
@@ -632,3 +741,56 @@ var LazyLoad = function () {
 }();
 
 var lazy = new LazyLoad({ images: loadImages });
+
+var animationHandler = function () {
+  function animationHandler(_ref6) {
+    var selectors = _ref6.selectors;
+
+    _classCallCheck(this, animationHandler);
+
+    this.selectors = selectors;
+    this.handle();
+  }
+
+  _createClass(animationHandler, [{
+    key: "handle",
+    value: function handle() {
+      var _this8 = this;
+
+      this.selectors.forEach(function (selector) {
+        var _selector$dataset2 = selector.dataset,
+            animate = _selector$dataset2.animate,
+            start = _selector$dataset2.start;
+
+        switch (start) {
+          case "load":
+            document.addEventListener("DOMContentLoaded", function () {
+              selector.classList.add(animate);
+            });
+          case "scroll":
+            window.addEventListener("scroll", function () {
+              return _this8.checkScroll(selector, animate);
+            });
+            _this8.checkScroll(selector, animate);
+            break;
+
+          default:
+            break;
+        }
+      });
+    }
+  }, {
+    key: "checkScroll",
+    value: function checkScroll(selector, animate) {
+      if (selector.getBoundingClientRect().top <= document.documentElement.clientHeight) {
+        selector.classList.add(animate);
+      }
+    }
+  }]);
+
+  return animationHandler;
+}();
+
+document.addEventListener('DOMContentLoaded', function () {
+  new animationHandler({ selectors: [].concat(_toConsumableArray(document.querySelectorAll(".animated"))) });
+});
