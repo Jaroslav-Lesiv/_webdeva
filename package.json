@@ -4,34 +4,23 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "deploy": "node ./scripts/deploy",
-    "watch": "gulp watch",
-    "build": "gulp"
+    "watch": "parcel watch src/index.pug",
+    "build": "parcel src/index.pug"
   },
   "author": "Jaroslav_Lesiv",
   "license": "ISC",
   "dependencies": {
-    "browser-sync": "^2.24.4",
-    "gift": "^0.10.2",
-    "gulp-image": "^4.3.0",
-    "gulp-pug": "^4.0.1"
+    "parcel": "^1.9.2",
+    "posthtml-img-autosize": "^0.1.2"
   },
   "devDependencies": {
     "babel-core": "^6.26.3",
     "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-preset-env": "^1.7.0",
-    "gh-pages": "^1.2.0",
-    "gulp": "^3.9.1",
-    "gulp-autoprefixer": "^5.0.0",
-    "gulp-babel": "^7.0.1",
-    "gulp-csscomb": "^3.0.8",
-    "gulp-gh-pages": "^0.5.4",
-    "gulp-minify-css": "^1.2.4",
-    "gulp-plumber": "^1.2.0",
-    "gulp-stylus": "^2.7.0",
-    "gulp-uglify": "^3.0.0",
-    "plumber": "^0.4.8",
-    "uglify": "^0.1.5"
+    "parcel-plugin-imagemin": "^1.1.2",
+    "postcss-modules": "^1.1.0",
+    "pug": "^2.0.3",
+    "stylus": "^0.54.5"
   }
 }
