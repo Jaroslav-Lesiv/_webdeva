@@ -5,11 +5,14 @@
   "main": "index.js",
   "scripts": {
     "watch": "parcel watch src/index.pug",
-    "build": "parcel src/index.pug"
+    "start": "parcel src/index.pug",
+    "production": "parcel build src/index.pug -d build",
+    "deploy": "node scripts/deploy"
   },
   "author": "Jaroslav_Lesiv",
   "license": "ISC",
   "dependencies": {
+    "gh-pages": "^1.2.0",
     "parcel": "^1.9.2",
     "posthtml-img-autosize": "^0.1.2"
   },

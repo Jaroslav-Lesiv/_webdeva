@@ -197,12 +197,6 @@ strong
             left: 0
             right: 0
 
-                
-        &:hover
-            img
-                background-color: rgba($primary, .3)
-                transform: scale(1.1)
-
     &-content
         width: 100%
         padding: 25px
@@ -229,11 +223,8 @@ img
     &-rotate
         transform: rotate(2deg)
         position relative
-        @media all and (max-width 990px)
-            & > div,ul,section
-                transform: rotate(-2deg)
         &-not-rotateContent
-            & > div,ul,section
+            > div
                     transform: rotate(-2deg)
     &-dark
         position relative
