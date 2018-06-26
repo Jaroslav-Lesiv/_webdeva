@@ -89,10 +89,7 @@ const MobileControl = class {
     }
 
     toggle() {
-        console.log(1, this.isActive)
         this.isActive = !this.isActive
-        console.log(2, this.isActive)
-
         this.render()
     }
 
