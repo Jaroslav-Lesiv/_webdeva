@@ -76,6 +76,39 @@ const ScrollControl = class {
         });
     }
 };
-const yyy = new ScrollControl({
+new ScrollControl({
     links: navLinks
 });
+
+const MobileControl = class {
+    constructor() {
+        this.isActive = false
+        this.button = document.querySelector('#nav-toggle_menu')
+        this.nav = document.querySelector('#nav')
+        this.button.addEventListener('click', () => this.toggle())
+    }
+
+    toggle() {
+        console.log(1, this.isActive)
+        this.isActive = !this.isActive
+        console.log(2, this.isActive)
+
+        this.render()
+    }
+
+    render() {
+        console.log(3, this.isActive)
+        if (this.isActive) {
+            this.button.classList.add('active')
+            this.nav.classList.add('active')
+            console.log(this.button, this.nav, 'true 222')
+        } else {
+            this.button.classList.remove('active')
+            this.nav.classList.remove('active')
+            console.log(this.button, this.nav,'false 333')
+        }
+
+    }
+}
+
+new MobileControl()

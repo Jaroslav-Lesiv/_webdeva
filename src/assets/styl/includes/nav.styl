@@ -12,7 +12,52 @@
     flex-wrap: wrap
     z-index: 10
     transition: 0.1s
-    background: linear-gradient(45deg, rgba(5,81,84,0.9) 0%, rgba(0,128,128,1) 100%); /* w3c */
+    background: linear-gradient(45deg, rgba(5,81,84,0.9) 0%, rgba(0,128,128,1) 100%);
+    &-toggle_menu
+        position fixed
+        right: 30px
+        top: 10px
+        width: 50px
+        height: 50px
+        display: none
+        flex-direction: column
+        background-color: #ffffff;
+        border-radius: 50%;
+        overflow: hidden;
+        z-index: 10;
+        padding: 10px
+        box-shadow: $boxShadow
+        :nth-child(1)
+            top: 10px
+        :nth-child(2)
+            top: 20px
+        :nth-child(3)
+            top: 30px
+        
+        span.btn-line
+            width: 30px
+            position absolute
+            height: 4px
+            left: 10px;
+            border-radius: 4px
+            background-color: $primary
+            transition: 0.4s
+            margin: 3px 0
+        &.active
+            span.btn-line
+                width: 40px
+                position: absolute;
+                top: 45%;
+                left: 5px;
+                margin: 0;
+            :nth-child(1)
+                transform: rotate(45deg)
+            :nth-child(2)
+                transform: translateX(100px)
+            :nth-child(3)
+                transform: rotate(-45deg)
+                
+
     &.transform
         background-color: $dark
     .list
@@ -23,7 +68,19 @@
                 transition: 1s
                 &.btn-primary
                     transform: rotateX(360deg)
-
+    &-links
+        width: 100%
+        margin-top: auto
+        padding-bottom: 20px
+        ul
+            li
+                .icon
+                    font-size: 50px
+                    margin: 0 10px 25px
+                    cursor pointer
+                    color: #ffffff
+                    &:hover
+                        color: $primary
     @media all and (max-width 991px)
         position: fixed
         top: 0
@@ -34,20 +91,10 @@
         width: 80vw
         transition: ($duration)s
         transform: translateX(-1000px)
+        &-toggle_menu
+            display: flex
         &.active
             transform: translateX(0)
-    &-links
-        width: 100%
-        margin-top: auto
-        ul
-            li
-                .icon
-                    font-size: 50px
-                    margin: 0 10px 25px
-                    cursor pointer
-                    color: #ffffff
-                    &:hover
-                        color: $primary
 
 .logo
     width: 150px
