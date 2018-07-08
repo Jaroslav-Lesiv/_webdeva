@@ -34,6 +34,7 @@ const TextBracket = class {
         const wordWrap = div.cloneNode();
         this.wordWrap = wordWrap;
         const word = h3.cloneNode();
+        word.className = 'color-primary'
 
         before.className = 'color-primary bold mr-10'
         after.className = 'color-primary bold ml-10'
@@ -42,7 +43,7 @@ const TextBracket = class {
             display: 'inline-flex',
             justifyContent: 'center',
             textTransform: 'uppercase',
-            fontWeight: '400',
+            fontWeight: '600',
         })
 
         setStyle(bracket, {

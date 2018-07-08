@@ -60,6 +60,12 @@ ul
     flex-wrap: wrap
     padding: 50px
     position relative
+    @media all and (max-width 990px)
+        padding: 50px 20px
+    @media all and (max-width 767px)
+        padding: 50px 10px
+    @media all and (max-width 556px)
+        padding: 50px 5px
 
 .to
     &-top
@@ -223,8 +229,8 @@ img
     &-rotate
         transform: rotate(2deg)
         position relative
-        &-not-rotateContent
-            > div
+        &-not-rotateContent 
+            > div, >  h2
                     transform: rotate(-2deg)
     &-dark
         position relative
@@ -248,3 +254,6 @@ img
         width: 80px
         min-width: 80px
         height: 80px
+.icon
+    &-shadow
+        text-shadow: 5px 5px 10px rgba(0,0,0,.5)

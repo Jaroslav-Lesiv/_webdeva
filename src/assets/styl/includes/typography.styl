@@ -23,15 +23,14 @@ body, h1, h2, h3, h4, h5, h6, button,  span,p
     color: $colorGrey
     font-family: inherit
 p
-    font-size: 14px
+    font-size: 17px
 p, div, li
     font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;
-h1,h2,h3,h4,h5,h6
+h1,h2,h3,h4,h5,h6,.link, a, strong
     font-family: $font, "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;
     font-weight: 600
 /* Body Content */
 .title
-    width: 100%
     // font-size: 3.5em
     // text-align: center
     font-weight: 500
@@ -42,6 +41,34 @@ h1,h2,h3,h4,h5,h6
     width: 100%
     &:hover
         color: $primary
+.section
+    &-title
+        transform: translateY(-30px);
+        font-size: 3em;
+        text-shadow: 0 0 10px rgba(0,0,0,0.5), 5px 6px 10px rgba(0,0,0,0.7)
+        width: 100%
+        text-align: center
+        align-self: flex-start
+        position absolute
+        top: 0
+        @media all and (max-width 990px)
+            font-size: 2.5em
+            transform: translateY(-75px);
+        @media all and (max-width 556px)
+            font-size: 2em
+            transform: translateY(-70px);
+            
+        &::before, &::after
+            color: $primary
+        &::before
+            content: attr(data-before)
+            margin-right: 15px
+        &::after
+            content: attr(data-after)
+            margin-left: 15px
+        &-not_rotate
+            transform:  translateY(-30px) rotate(-2deg) !important;
+            
 .shadow
     &_elegant
         color: #131313;
@@ -138,8 +165,8 @@ h3 {
 
 h4 {
   font-size: 1.125em;
-  /* 1.125x body copy size = 18px */
-  line-height: 1.11111111;
+  font-weight: 500;
+  line-height: 2em;
 }
 
 blockquote {

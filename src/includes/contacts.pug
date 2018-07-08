@@ -1,3 +1,5 @@
+
+h2.section-title.color-white(data-before="/*", data-after="*/") Contacts
 .contacts.flex.flex-justify-sa
     .contact-block.flex.flex-column
         h2.contact-title My Contact
@@ -9,11 +11,20 @@
                     p Economicheska 12, Kherson, Ukrain
             
             li.contact-list-item.flex.flex-align-center
-                img.contact-logo(src="./img/icon/mail.png")
+                img.contact-logo(src="./img/icon/telegram.png")
                 .flex.flex.justify-start.flex-column
-                    strong Email
+                    strong Telegram
+                    a.link.snake(href="https://telegram.me/Jaroslav_Lesiv") @Jaroslav_Lesiv
+            li.contact-list-item.flex.flex-align-center
+                img.contact-logo(src="./img/icon/instagram.png")
+                .flex.flex.justify-start.flex-column
+                    strong Instagram
+                    a.link.snake(href="https://www.instagram.com/jaroslav_lesiv/", target="_blank") https://www.instagram.com/jaroslav_lesiv/ 
+            li.contact-list-item.flex.flex-align-center
+                img.contact-logo(src="./img/icon/outlook.png")
+                .flex.flex.justify-start.flex-column
+                    strong Outlook
                     a.link.snake(href="mailto:jaroslav_lesiv@hotmail.com") jaroslav_lesiv@hotmail.com
-            
             li.contact-list-item.flex.flex-align-center
                 img.contact-logo(src="./img/icon/telephone.png")
                 .flex.flex.justify-start.flex-column
@@ -24,20 +35,20 @@
                 .flex.flex.justify-start.flex-column
                     strong My team
                     a.link.snake(href="https://codingchipmunks.com/") CodingChipmunks
-    form.contact-block.flex.flex-column
+    form#contact_form.contact-block.flex.flex-column
         h2.contact-title Have a question or want to work together?
         ul.flex.flex-column.contact-list
             li.flex.flex-align-start
                 .contact-list-item.flex.flex-align-start.flex-grow.compose
                     .flex.flex.justify-start.flex-column.full-width
                         strong Name
-                        input.ipt(type="text", name="name", placeholder="John", id="name")
+                        input#contact_name.ipt(type="text", name="name", placeholder="John")
                 .contact-list-item.flex.flex-align-start.flex-grow.compose
                     .flex.flex.justify-start.flex-column.full-width
                         strong Email
-                        input.ipt(type="email", name="mail", required, placeholder="email@example.com", id="email")
+                        input#contact_email.ipt(type="email", name="mail", required, placeholder="email@example.com")
             li.contact-list-item.flex.flex-align-center.flex-column
                 strong.text-left Message
-                textarea.ipt(type="text", name="name", placeholder="Type your messages...", id="name", rows="10", style="resize: none")
+                textarea#contact_message.ipt(type="text", name="name", placeholder="Type your messages...", rows="10", style="resize: none")
             li.contact-list-item.flex.flex-align-center
                 button.btn.btn-primary(type="submit") Send messages

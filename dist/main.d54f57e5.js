@@ -103,7 +103,278 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 
   // Override the current require with this new one
   return newRequire;
-})({38:[function(require,module,exports) {
+})({52:[function(require,module,exports) {
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports.default = {
+    secret: 'WCUj3/(iTn.Nw4M]ezy#DU5G&P/0Un',
+    domain: 'http://localhost:5000'
+};
+},{}],47:[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.http = exports.setStyle = exports.button = exports.img = exports.p = exports.h5 = exports.h4 = exports.h3 = exports.a = exports.strong = exports.li = exports.ul = exports.nav = exports.span = exports.div = undefined;
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"]) _i["return"](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError("Invalid attempt to destructure non-iterable instance"); } }; }();
+
+var _config = require("./config");
+
+var _config2 = _interopRequireDefault(_config);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var secret = _config2.default.secret,
+    domain = _config2.default.domain;
+
+var create = function create(tagname) {
+  return document.createElement(tagname);
+};
+
+var div = create("div");
+var span = create("span");
+var nav = create("nav");
+var ul = create("ul");
+var li = create("li");
+var strong = create("strong");
+var a = create("a");
+var h3 = create("h3");
+var h4 = create("h4");
+var h5 = create("h5");
+var p = create("p");
+var img = create("img");
+var button = create("button");
+
+var setStyle = function setStyle(selector) {
+  var styles = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+
+  console.log(styles);
+  var _iteratorNormalCompletion = true;
+  var _didIteratorError = false;
+  var _iteratorError = undefined;
+
+  try {
+    for (var _iterator = Object.entries(styles)[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+      var _ref = _step.value;
+
+      var _ref2 = _slicedToArray(_ref, 2);
+
+      var key = _ref2[0];
+      var value = _ref2[1];
+
+      selector.style[key] = value;
+    }
+  } catch (err) {
+    _didIteratorError = true;
+    _iteratorError = err;
+  } finally {
+    try {
+      if (!_iteratorNormalCompletion && _iterator.return) {
+        _iterator.return();
+      }
+    } finally {
+      if (_didIteratorError) {
+        throw _iteratorError;
+      }
+    }
+  }
+};
+
+var Http = function () {
+  function Http(_ref3) {
+    var secret = _ref3.secret,
+        domain = _ref3.domain;
+
+    _classCallCheck(this, Http);
+
+    this.secret = secret;
+    this.domain = domain;
+  }
+
+  _createClass(Http, [{
+    key: "post",
+    value: function post(_ref4) {
+      var data = _ref4.data,
+          success = _ref4.success,
+          error = _ref4.error,
+          url = _ref4.url,
+          _ref4$myDomain = _ref4.myDomain,
+          myDomain = _ref4$myDomain === undefined ? true : _ref4$myDomain;
+
+      var _url = myDomain ? this.domain + "/" + url : url;
+
+      var xhr = new XMLHttpRequest();
+
+      if (myDomain) data._secret = this.secret;
+
+      var json = JSON.stringify(data);
+
+      xhr.onreadystatechange = function () {
+        if (xhr.readyState == XMLHttpRequest.DONE && xhr.status == 200) {
+          success(xhr.response);
+        } else {
+          error();
+        }
+      };
+
+      // Отсылаем объект в формате JSON и с Content-Type application/json
+      // Сервер должен уметь такой Content-Type принимать и раскодировать
+      xhr.open("POST", _url, true);
+      xhr.setRequestHeader('Content-type', 'application/json; charset=utf-8');
+      xhr.send(json);
+    }
+  }]);
+
+  return Http;
+}();
+var http = new Http({ secret: secret, domain: domain });
+
+exports.div = div;
+exports.span = span;
+exports.nav = nav;
+exports.ul = ul;
+exports.li = li;
+exports.strong = strong;
+exports.a = a;
+exports.h3 = h3;
+exports.h4 = h4;
+exports.h5 = h5;
+exports.p = p;
+exports.img = img;
+exports.button = button;
+exports.setStyle = setStyle;
+exports.http = http;
+},{"./config":52}],51:[function(require,module,exports) {
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports._notification = undefined;
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _helper = require('../helper');
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var NotificationBlock = _helper.div.cloneNode();
+(0, _helper.setStyle)(NotificationBlock, {
+    position: 'fixed',
+    right: '15px',
+    bottom: '15px',
+    padding: '10px',
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'flex-end'
+});
+
+var NotificationContainer = _helper.div.cloneNode();
+(0, _helper.setStyle)(NotificationContainer, {
+    padding: '2px 25px',
+    borderRadius: '3px',
+    display: 'flex',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    boxShadow: '0 3px 13px 1px rgba(0,0,0,0.12)',
+    backgroundColor: '#ffffff',
+    margin: '5px 0',
+    minWidth: '250px'
+});
+
+var icon = _helper.img.cloneNode();
+icon.src = './img/icon/mail.png';
+(0, _helper.setStyle)(icon, {
+    width: '35px',
+    height: '35px',
+    marginRight: '15px'
+});
+
+var NotificationContent = _helper.div.cloneNode();
+(0, _helper.setStyle)(NotificationContent, {
+    display: 'flex',
+    flexDirection: 'column',
+    flexGrow: 1
+});
+var Notification = function () {
+    function Notification() {
+        _classCallCheck(this, Notification);
+
+        this.NotificationBlock = NotificationBlock;
+        document.body.append(NotificationBlock);
+        this.anim_show = 'slideInRight';
+        this.anim_hide = 'slideOutRight';
+    }
+
+    _createClass(Notification, [{
+        key: 'add',
+        value: function add(_ref) {
+            var _this = this;
+
+            var label = _ref.label,
+                mess = _ref.mess;
+
+            var id = '_' + +new Date();
+            this.NotificationBlock.prepend(this.create({ label: label, mess: mess, id: id }));
+            setTimeout(function () {
+                return _this.remove(id);
+            }, 3000);
+        }
+    }, {
+        key: 'remove',
+        value: function remove(id) {
+            var el = this.NotificationBlock.querySelector('#' + id);
+            el.classList.remove(this.anim_show);
+            el.classList.add(this.anim_hide);
+            setTimeout(function () {
+                return el.remove();
+            }, 500);
+        }
+    }, {
+        key: 'create',
+        value: function create(_ref2) {
+            var label = _ref2.label,
+                mess = _ref2.mess,
+                id = _ref2.id;
+
+            var _NotificationContainer = NotificationContainer.cloneNode();
+            _NotificationContainer.id = id;
+            _NotificationContainer.className = 'transition ' + this.anim_show;
+            var _NotificationContent = NotificationContent.cloneNode();
+
+            var _icon = icon.cloneNode();
+
+            var _NotificationLabel = _helper.h4.cloneNode();
+            _NotificationLabel.className = 'card-label snake';
+            _NotificationLabel.innerHTML = label;
+
+            var _NotificationMessage = _helper.p.cloneNode();
+            _NotificationMessage.className = 'description';
+            _NotificationMessage.innerHTML = mess;
+
+            _NotificationContent.append(_NotificationLabel, _NotificationMessage);
+            _NotificationContainer.append(_icon, _NotificationContent);
+
+            return _NotificationContainer;
+        }
+    }]);
+
+    return Notification;
+}();
+
+var _notification = exports._notification = new Notification();
+window._notification = _notification;
+},{"../helper":47}],38:[function(require,module,exports) {
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -164,79 +435,7 @@ var LazyLoad = function () {
 var lazy = new LazyLoad({
     images: loadImages
 });
-},{}],43:[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"]) _i["return"](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError("Invalid attempt to destructure non-iterable instance"); } }; }();
-
-var create = function create(tagname) {
-  return document.createElement(tagname);
-};
-
-var div = create("div");
-var span = create("span");
-var nav = create("nav");
-var ul = create("ul");
-var li = create("li");
-var strong = create("strong");
-var a = create("a");
-var h3 = create("h3");
-var p = create("p");
-var img = create("img");
-var button = create("button");
-
-var setStyle = function setStyle(selector) {
-  var styles = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
-
-  console.log(styles);
-  var _iteratorNormalCompletion = true;
-  var _didIteratorError = false;
-  var _iteratorError = undefined;
-
-  try {
-    for (var _iterator = Object.entries(styles)[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
-      var _ref = _step.value;
-
-      var _ref2 = _slicedToArray(_ref, 2);
-
-      var key = _ref2[0];
-      var value = _ref2[1];
-
-      selector.style[key] = value;
-    }
-  } catch (err) {
-    _didIteratorError = true;
-    _iteratorError = err;
-  } finally {
-    try {
-      if (!_iteratorNormalCompletion && _iterator.return) {
-        _iterator.return();
-      }
-    } finally {
-      if (_didIteratorError) {
-        throw _iteratorError;
-      }
-    }
-  }
-};
-
-exports.div = div;
-exports.span = span;
-exports.nav = nav;
-exports.ul = ul;
-exports.li = li;
-exports.strong = strong;
-exports.a = a;
-exports.h3 = h3;
-exports.p = p;
-exports.img = img;
-exports.button = button;
-exports.setStyle = setStyle;
-},{}],39:[function(require,module,exports) {
+},{}],16:[function(require,module,exports) {
 "use strict";
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -292,7 +491,7 @@ var ScrollControl = function () {
                     var node = _step.value;
 
                     var coords = node.selector.getBoundingClientRect();
-                    var isCurrent = coords.top >= 0 || coords.bottom - 23 > 0;
+                    var isCurrent = coords.top >= 0 || coords.bottom - 40 > 0;
                     if (isCurrent) {
                         this.hash = node.hash;
                         this.updateNavigation();
@@ -373,16 +572,12 @@ var MobileControl = function () {
     _createClass(MobileControl, [{
         key: "toggle",
         value: function toggle() {
-            console.log(1, this.isActive);
             this.isActive = !this.isActive;
-            console.log(2, this.isActive);
-
             this.render();
         }
     }, {
         key: "render",
         value: function render() {
-            console.log(3, this.isActive);
             if (this.isActive) {
                 this.button.classList.add('active');
                 this.nav.classList.add('active');
@@ -399,7 +594,7 @@ var MobileControl = function () {
 }();
 
 new MobileControl();
-},{"../helper":43}],40:[function(require,module,exports) {
+},{"../helper":47}],40:[function(require,module,exports) {
 'use strict';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -440,6 +635,7 @@ var TextBracket = function () {
             var wordWrap = _helper.div.cloneNode();
             this.wordWrap = wordWrap;
             var word = _helper.h3.cloneNode();
+            word.className = 'color-primary';
 
             before.className = 'color-primary bold mr-10';
             after.className = 'color-primary bold ml-10';
@@ -448,7 +644,7 @@ var TextBracket = function () {
                 display: 'inline-flex',
                 justifyContent: 'center',
                 textTransform: 'uppercase',
-                fontWeight: '400'
+                fontWeight: '600'
             });
 
             (0, _helper.setStyle)(bracket, {
@@ -521,10 +717,12 @@ var textBracket = document.querySelector(".text-bracket");
 new TextBracket({
     selector: textBracket
 });
-},{"../helper":43}],42:[function(require,module,exports) {
+},{"../helper":47}],42:[function(require,module,exports) {
 'use strict';
 
 var _helper = require('../helper');
+
+var _notification2 = require('../notification');
 
 var imageHandler = function imageHandler(image) {
     image.addEventListener('mouseover', function (e) {
@@ -539,7 +737,20 @@ var imageHandler = function imageHandler(image) {
 };
 var snakeLink = _helper.a.cloneNode(true);
 snakeLink.className = "snake";
+snakeLink.target = '_blank';
 
+var copyBtn = _helper.img.cloneNode();
+(0, _helper.setStyle)(copyBtn, {
+    width: '20px',
+    height: '20px',
+    margin: '0 auto',
+    cursor: 'pointer'
+});
+
+copyBtn.setAttribute('title', 'Copy to clipboard');
+copyBtn.alt = 'Copy to clipboard';
+copyBtn.src = './img/icon/copy.png';
+copyBtn.className = 'transition hover-animate-scale';
 var dot = _helper.span.cloneNode();
 dot.className = "dot";
 
@@ -659,6 +870,16 @@ var json = JSON.stringify({
             url: "http://laravel.su/"
         }],
         description: 'Check the reliability and solvency of the counterparty'
+    }, {
+        label: 'Time tracker',
+        url: 'https://chrome.google.com/webstore/detail/time-tracker/hanofejodfbhellaldjonedfpejjcpnl',
+        sortKey: 'web,extension',
+        img: 'time_tracker.png',
+        use: [{
+            label: "JavaScript",
+            url: "https://www.javascript.com/"
+        }],
+        description: 'Time Tracker which tracks where you spend time on the web and presents the stats in a useful and intuitive way.'
     }]
 });
 
@@ -750,8 +971,28 @@ var _renderExamples = function _renderExamples(json) {
         var _pageShapeUrl = pageShapeUrl.cloneNode();
         _pageShapeUrl.innerHTML = example.url;
 
+        var _copy = copyBtn.cloneNode();
+        _copy.addEventListener('click', function () {
+            var range = document.createRange();
+            range.selectNode(_pageShapeUrl);
+            window.getSelection().addRange(range);
+            try {
+                // Теперь, когда мы выбрали текст , выполним команду копирования
+                var successful = document.execCommand("copy");
+
+                var mess = successful ? "Successful" : "Failed";
+                _notification2._notification.add({ label: 'Copied!', mess: mess });
+            } catch (err) {
+                console.log("Oops, unable to copy");
+            }
+
+            // Снятие выделения - ВНИМАНИЕ: вы должны использовать
+            // removeRange(range) когда это возможно
+            window.getSelection().removeRange(range);
+        });
+
         var _pageShape = pageShape.cloneNode(true);
-        _pageShape.append(_pageShapeUrl);
+        _pageShape.append(_pageShapeUrl, _copy);
 
         _cardMedia.append(_img);
 
@@ -808,10 +1049,41 @@ var _renderExamples = function _renderExamples(json) {
 };
 
 _renderExamples(data);
-},{"../helper":43}],41:[function(require,module,exports) {
+},{"../helper":47,"../notification":51}],57:[function(require,module,exports) {
+'use strict';
+
+var _helper = require('../helper');
+
+var _notification2 = require('../notification');
+
+var form = document.getElementById('contact_form');
+
+form.addEventListener('submit', function (event) {
+    event.preventDefault();
+    var _ref = [form.querySelector('#contact_name').value, form.querySelector('#contact_email').value, form.querySelector('#contact_message').value],
+        name = _ref[0],
+        email = _ref[1],
+        message = _ref[2];
+
+
+    var data = {
+        name: name,
+        email: email,
+        message: message
+    };
+
+    _helper.http.post({ data: data, url: 'message', success: function success() {
+            return _notification2._notification.add({ label: 'Message sending', mess: 'You messages sended seccessfull :)' });
+        }, error: function error() {
+            return _notification2._notification.add({ label: 'Message sending', mess: 'You messages not sended :(' });
+        } });
+});
+},{"../helper":47,"../notification":51}],36:[function(require,module,exports) {
 'use strict';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+require('./notification');
 
 require('./lazyLoad');
 
@@ -820,6 +1092,8 @@ require('./navigation');
 require('./textBracket');
 
 require('./examples');
+
+require('./contacts');
 
 function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
 
@@ -997,7 +1271,7 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 console.log([].concat(_toConsumableArray(document.querySelectorAll(".animated"))));
-},{"./lazyLoad":38,"./navigation":39,"./textBracket":40,"./examples":42}],23:[function(require,module,exports) {
+},{"./notification":51,"./lazyLoad":38,"./navigation":16,"./textBracket":40,"./examples":42,"./contacts":57}],28:[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 
@@ -1026,7 +1300,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = '' || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + '63111' + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + '58069' + '/');
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
 
@@ -1167,5 +1441,5 @@ function hmrAccept(bundle, id) {
     return hmrAccept(global.parcelRequire, id);
   });
 }
-},{}]},{},[23,41], null)
+},{}]},{},[28,36], null)
 //# sourceMappingURL=/main.d54f57e5.map

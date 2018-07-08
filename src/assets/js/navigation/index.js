@@ -41,7 +41,7 @@ const ScrollControl = class {
         const windowHeight = document.documentElement.clientHeight;
         for (let node of this.nodeList) {
             const coords = node.selector.getBoundingClientRect();
-            const isCurrent = coords.top >= 0 || coords.bottom - 23 > 0;
+            const isCurrent = coords.top >= 0 || coords.bottom - 40 > 0;
             if (isCurrent) {
                 this.hash = node.hash;
                 this.updateNavigation();
@@ -94,7 +94,6 @@ const MobileControl = class {
     }
 
     render() {
-        console.log(3, this.isActive)
         if (this.isActive) {
             this.button.classList.add('active')
             this.nav.classList.add('active')

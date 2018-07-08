@@ -1,8 +1,12 @@
+
+import './notification'
 import './lazyLoad'
 import './navigation'
 import './textBracket'
 // import './animation'
 import './examples'
+import './contacts'
+
 particlesJS("particles-js", {
   particles: {
     number: {

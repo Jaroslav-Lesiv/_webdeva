@@ -12,6 +12,7 @@ import {
     button,
     setStyle
 } from '../helper'
+import {_notification} from '../notification'
 const imageHandler = image => {
     image.addEventListener('mouseover', function (e) {
         const parentHeight = this.parentNode.offsetHeight
@@ -25,7 +26,20 @@ const imageHandler = image => {
 }
 const snakeLink = a.cloneNode(true);
 snakeLink.className = "snake";
+snakeLink.target = '_blank'
 
+const copyBtn = img.cloneNode()
+setStyle(copyBtn, {
+    width: '20px',
+    height: '20px',
+    margin: '0 auto',
+    cursor: 'pointer',
+})
+
+copyBtn.setAttribute('title', 'Copy to clipboard')
+copyBtn.alt = 'Copy to clipboard'
+copyBtn.src = './img/icon/copy.png'
+copyBtn.className = 'transition hover-animate-scale'
 const dot = span.cloneNode();
 dot.className = "dot";
 
@@ -172,6 +186,18 @@ const json = JSON.stringify({
                 }
             ],
             description: `Check the reliability and solvency of the counterparty`
+        },
+        {
+            label: `Time tracker`,
+            url: `https://chrome.google.com/webstore/detail/time-tracker/hanofejodfbhellaldjonedfpejjcpnl`,
+            sortKey: `web,extension`,
+            img: `time_tracker.png`,
+            use: [{
+                    label: "JavaScript",
+                    url: "https://www.javascript.com/"
+                },
+            ],
+            description: `Time Tracker which tracks where you spend time on the web and presents the stats in a useful and intuitive way.`
         }
     ]
 });
@@ -261,12 +287,35 @@ const _renderExamples = json => {
         _img.src = `./img/examples/${example.img}`;
         imageHandler(_img)
 
+        
+
         const _pageShapeUrl = pageShapeUrl.cloneNode();
         _pageShapeUrl.innerHTML = example.url;
 
-        const _pageShape = pageShape.cloneNode(true);
-        _pageShape.append(_pageShapeUrl);
+        const _copy = copyBtn.cloneNode()
+        _copy.addEventListener('click', () => {
+            const range = document.createRange();
+            range.selectNode(_pageShapeUrl);
+            window.getSelection().addRange(range);
+            try {
+            // Теперь, когда мы выбрали текст , выполним команду копирования
+                const successful = document.execCommand("copy");
+                
+                const mess = successful ? "Successful" : "Failed";
+                _notification.add({ label: `Copied!`, mess })
+            } catch (err) {
+                console.log("Oops, unable to copy");
+            }
 
+            // Снятие выделения - ВНИМАНИЕ: вы должны использовать
+            // removeRange(range) когда это возможно
+            window.getSelection().removeRange(range);
+        })
+
+        const _pageShape = pageShape.cloneNode(true);
+        _pageShape.append(_pageShapeUrl, _copy);
+
+        
         _cardMedia.append(_img);
 
         const _cardContent = exampleListItemContent.cloneNode(true);
