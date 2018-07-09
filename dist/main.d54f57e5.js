@@ -103,7 +103,7 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 
   // Override the current require with this new one
   return newRequire;
-})({52:[function(require,module,exports) {
+})({27:[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -111,9 +111,9 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = {
     secret: 'WCUj3/(iTn.Nw4M]ezy#DU5G&P/0Un',
-    domain: 'http://localhost:5000'
+    domain: 'https://still-journey-84385.herokuapp.com'
 };
-},{}],47:[function(require,module,exports) {
+},{}],28:[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -253,7 +253,7 @@ exports.img = img;
 exports.button = button;
 exports.setStyle = setStyle;
 exports.http = http;
-},{"./config":52}],51:[function(require,module,exports) {
+},{"./config":27}],51:[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -374,7 +374,7 @@ var Notification = function () {
 
 var _notification = exports._notification = new Notification();
 window._notification = _notification;
-},{"../helper":47}],38:[function(require,module,exports) {
+},{"../helper":28}],38:[function(require,module,exports) {
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -594,7 +594,7 @@ var MobileControl = function () {
 }();
 
 new MobileControl();
-},{"../helper":47}],40:[function(require,module,exports) {
+},{"../helper":28}],40:[function(require,module,exports) {
 'use strict';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -717,7 +717,7 @@ var textBracket = document.querySelector(".text-bracket");
 new TextBracket({
     selector: textBracket
 });
-},{"../helper":47}],42:[function(require,module,exports) {
+},{"../helper":28}],42:[function(require,module,exports) {
 'use strict';
 
 var _helper = require('../helper');
@@ -1049,7 +1049,7 @@ var _renderExamples = function _renderExamples(json) {
 };
 
 _renderExamples(data);
-},{"../helper":47,"../notification":51}],57:[function(require,module,exports) {
+},{"../helper":28,"../notification":51}],57:[function(require,module,exports) {
 'use strict';
 
 var _helper = require('../helper');
@@ -1078,7 +1078,7 @@ form.addEventListener('submit', function (event) {
             return _notification2._notification.add({ label: 'Message sending', mess: 'You messages not sended :(' });
         } });
 });
-},{"../helper":47,"../notification":51}],36:[function(require,module,exports) {
+},{"../helper":28,"../notification":51}],36:[function(require,module,exports) {
 'use strict';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -1101,6 +1101,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 // import './animation'
 
 
+// import './http'
 particlesJS("particles-js", {
   particles: {
     number: {
@@ -1271,7 +1272,7 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 console.log([].concat(_toConsumableArray(document.querySelectorAll(".animated"))));
-},{"./notification":51,"./lazyLoad":38,"./navigation":16,"./textBracket":40,"./examples":42,"./contacts":57}],28:[function(require,module,exports) {
+},{"./notification":51,"./lazyLoad":38,"./navigation":16,"./textBracket":40,"./examples":42,"./contacts":57}],122:[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 
@@ -1300,7 +1301,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = '' || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + '58069' + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + '7266' + '/');
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
 
@@ -1441,5 +1442,5 @@ function hmrAccept(bundle, id) {
     return hmrAccept(global.parcelRequire, id);
   });
 }
-},{}]},{},[28,36], null)
+},{}]},{},[122,36], null)
 //# sourceMappingURL=/main.d54f57e5.map

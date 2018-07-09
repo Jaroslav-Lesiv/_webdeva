@@ -7,6 +7,7 @@ import './textBracket'
 import './examples'
 import './contacts'
 
+// import './http'
 particlesJS("particles-js", {
   particles: {
     number: {
