@@ -626,7 +626,8 @@ img {
   transform: rotate(2deg);
   position: relative;
 }
-.section-rotate-not-rotateContent > div {
+.section-rotate-not-rotateContent > div,
+.section-rotate-not-rotateContent > h2 {
   transform: rotate(-2deg);
 }
 .section-dark {
@@ -715,7 +716,7 @@ p {
   font-family: inherit;
 }
 p {
-  font-size: 14px;
+  font-size: 17px;
 }
 p,
 div,
@@ -746,11 +747,14 @@ strong {
   color: #59dbd5;
 }
 .section-title {
-  transform: translateY(-80px);
+  transform: translateY(-30px);
   font-size: 3em;
   text-shadow: 0 0 10px rgba(0,0,0,0.5), 5px 6px 10px rgba(0,0,0,0.7);
   width: 100%;
   text-align: center;
+  align-self: flex-start;
+  position: absolute;
+  top: 0;
 }
 @media all and (max-width: 990px) {
   .section-title {
@@ -775,6 +779,9 @@ strong {
 .section-title::after {
   content: attr(data-after);
   margin-left: 15px;
+}
+.section-title-not_rotate {
+  transform: translateY(-30px) rotate(-2deg) !important;
 }
 .shadow_elegant {
   color: #131313;
@@ -844,8 +851,8 @@ h3 {
 }
 h4 {
   font-size: 1.125em;
-/* 1.125x body copy size = 18px */
-  line-height: 1.11111111;
+  font-weight: 500;
+  line-height: 2em;
 }
 blockquote {
   font-size: 1.25em;
