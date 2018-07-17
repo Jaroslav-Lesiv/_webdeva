@@ -623,12 +623,10 @@ img {
   opacity: 0;
 }
 .section-rotate {
-  transform: rotate(2deg);
   position: relative;
 }
-.section-rotate-not-rotateContent > div,
-.section-rotate-not-rotateContent > h2 {
-  transform: rotate(-2deg);
+.section-rotate::before {
+  transform: rotate(2deg);
 }
 .section-dark {
   position: relative;
@@ -669,6 +667,12 @@ img {
 }
 .text-lowercase {
   text-transform: lowercase;
+}
+.text-elipsis {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  max-width: 85vw;
 }
 body,
 h1,
@@ -765,7 +769,7 @@ strong {
 @media all and (max-width: 556px) {
   .section-title {
     font-size: 2em;
-    transform: translateY(-70px);
+    transform: translateY(-15px);
   }
 }
 .section-title::before,
@@ -1906,8 +1910,9 @@ i {
   margin-bottom: 25px;
 }
 .contacts .contact-list-item {
-  margin: 10px 0 10px 15px;
+  margin: 10px 5px 10px;
   height: max-content;
+  flex-wrap: nowrap;
 }
 .contacts .contact-list-item.compose {
   flex-basis: 250px;

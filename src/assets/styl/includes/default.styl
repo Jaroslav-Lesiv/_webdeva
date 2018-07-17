@@ -227,11 +227,9 @@ img
     opacity 0
 .section
     &-rotate
-        transform: rotate(2deg)
         position relative
-        &-not-rotateContent 
-            > div, >  h2
-                    transform: rotate(-2deg)
+        &::before
+            transform: rotate(2deg)
     &-dark
         position relative
 
