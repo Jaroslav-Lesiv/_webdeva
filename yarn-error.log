@@ -1,17 +1,25 @@
 Arguments: 
-  C:\Program Files\nodejs\node.exe C:\Program Files (x86)\Yarn\bin\yarn.js build
+  /home/jar/.nvm/versions/node/v10.6.0/bin/node /usr/share/yarn/bin/yarn.js add parcel-plugin-imagemin
 
 PATH: 
-  C:\Python27\;C:\Python27\Scripts;c:\program files\graphicsmagick-1.3.27-q16;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\Git\cmd;C:\Users\Jaros\AppData\Roaming\nvm;C:\Program Files\nodejs;C:\Program Files (x86)\Yarn\bin\;C:\Program Files (x86)\Windows Kits\8.1\Windows Performance Toolkit\;C:\ProgramData\ComposerSetup\bin;C:\ProgramData\chocolatey\bin;C:\Python27;C:\Program Files\nodejs\;C:\Program Files\Java\jdk1.8.0_172\bin;C:\Users\Jaros\AppData\Local\Microsoft\WindowsApps;C:\Users\Jaros\AppData\Roaming\nvm;C:\Program Files\nodejs;C:\Users\Jaros\AppData\Local\Yarn\bin;C:\OSPanel\modules\php\PHP-7.1-x64;C:\Users\Jaros\AppData\Roaming\Composer\vendor\bin;C:\Program Files\heroku\bin;C:\Users\Jaros\AppData\Roaming\npm;C:\Users\Jaros\AppData\Local\hyper\app-2.0.0\resources\bin;C:\Program Files\Microsoft VS Code\bin;C:\Users\Jaros\AppData\Local\atom\bin
+  /home/jar/.nvm/versions/node/v10.6.0/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
 
 Yarn version: 
-  1.5.1
+  1.7.0
 
 Node version: 
-  9.11.2
+  10.6.0
 
 Platform: 
-  win32 x64
+  linux x64
+
+Trace: 
+  SyntaxError: /home/jar/www/web/fun/package.json: Unexpected token } in JSON at position 410
+      at JSON.parse (<anonymous>)
+      at /usr/share/yarn/lib/cli.js:1130:59
+      at Generator.next (<anonymous>)
+      at step (/usr/share/yarn/lib/cli.js:98:30)
+      at /usr/share/yarn/lib/cli.js:109:13
 
 npm manifest: 
   {
@@ -30,7 +38,6 @@ npm manifest:
     "dependencies": {
       "gh-pages": "^1.2.0",
       "parcel": "^1.9.2",
-      "posthtml-img-autosize": "^0.1.2"
     },
     "devDependencies": {
       "axios": "^0.18.0",
@@ -38,7 +45,6 @@ npm manifest:
       "babel-plugin-transform-class-properties": "^6.24.1",
       "babel-plugin-transform-object-rest-spread": "^6.26.0",
       "babel-preset-env": "^1.7.0",
-      "parcel-plugin-imagemin": "^1.1.2",
       "postcss-modules": "^1.1.0",
       "pug": "^2.0.3",
       "stylus": "^0.54.5"
@@ -6052,16 +6058,3 @@ Lockfile:
     dependencies:
       buffer-crc32 "~0.2.3"
       fd-slicer "~1.1.0"
-
-Trace: 
-  Error: Command "build" not found.
-      at new MessageError (C:\Program Files (x86)\Yarn\lib\cli.js:186:110)
-      at C:\Program Files (x86)\Yarn\lib\cli.js:87307:17
-      at Generator.next (<anonymous>)
-      at step (C:\Program Files (x86)\Yarn\lib\cli.js:98:30)
-      at C:\Program Files (x86)\Yarn\lib\cli.js:116:14
-      at new Promise (<anonymous>)
-      at new F (C:\Program Files (x86)\Yarn\lib\cli.js:23451:28)
-      at C:\Program Files (x86)\Yarn\lib\cli.js:95:12
-      at runCommand (C:\Program Files (x86)\Yarn\lib\cli.js:87312:22)
-      at Object.<anonymous> (C:\Program Files (x86)\Yarn\lib\cli.js:87412:14)

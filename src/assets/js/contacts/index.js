@@ -1,5 +1,5 @@
 import { http } from '../helper'
-import {_notification} from '../notification'
+import { _notification } from '../notification'
 const form = document.getElementById('contact_form')
 
 form.addEventListener('submit', event => {
@@ -10,9 +10,20 @@ form.addEventListener('submit', event => {
         name,
         email,
         message
-    } 
+    }
+    form.classList.add('loading')
 
-    http.post({ data, url: `message`, success: () => _notification.add({ label: `Message sending`, mess: 'You messages sended seccessfull :)' }), error: () => _notification.add({ label: `Message sending`, mess: 'You messages not sended :(' }) })
+    http.post({ 
+        data, url: `message`, 
+        success: () => {
+            _notification.add({ label: `Message sending`, mess: 'You messages sended seccessfull :)' })
+            form.classList.remove('loading')
+        }, 
+        error: () => {
+            _notification.add({ label: `Message sending`, mess: 'You messages not sended :(' }) 
+            form.classList.remove('loading')
+        }
+    })
 
 
 })

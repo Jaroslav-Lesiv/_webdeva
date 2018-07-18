@@ -86,10 +86,12 @@ const MobileControl = class {
         this.button = document.querySelector('#nav-toggle_menu')
         this.nav = document.querySelector('#nav')
         this.button.addEventListener('click', () => this.toggle())
+        this.main = document.querySelector('.main')
     }
 
     toggle() {
         this.isActive = !this.isActive
+        // this.isActive ? this.main.classList.add('blur') : this.main.classList.remove('blur')
         this.render()
     }
 

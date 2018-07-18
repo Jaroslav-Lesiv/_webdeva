@@ -44,8 +44,6 @@ const Http = class {
     xhr.onreadystatechange = () => {
       if(xhr.readyState == XMLHttpRequest.DONE && xhr.status == 200) {
          success(xhr.response)
-      } else {
-        error()
       }
     }
 

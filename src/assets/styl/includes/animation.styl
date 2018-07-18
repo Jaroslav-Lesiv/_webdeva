@@ -328,10 +328,43 @@ i {
   animation-direction:alternate;
 
 }
+
+.blur
+  filter: blur(3px)
+
 .transition
   transition: ($duration)s
   animation-duration: ($duration)s
   animation-fill-mode:forwards;
+.loading
+  transition: filter ($duration)s 
+  position relative
+  // filter: blur(3px)
+  &:before
+    content: ''
+    background-color: rgba(255,255,255,.8)
+    position absolute
+    left: 0
+    right: 0
+    top: 0
+    bottom: 0
+    display: flex
+    z-index: 2
+  &:after
+    content: attr(data-label) ""
+    background-image: url('../../img/loader.svg')
+    background-repeat: no-repeat
+    background-position: center
+    width: 160px
+    height: 100px
+    position absolute
+    line-height: 200px
+    font-size: 16px
+    font-weight: 500
+    left: calc(50% - 50px)
+    top: calc(50% - 50px)
+    z-index: 2
+
 // for num in (1..30)
 //   {selector('.skill-' + num)}
 //     animation-delay: (num*50)ms
