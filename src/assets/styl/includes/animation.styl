@@ -8,6 +8,22 @@ i {
   animation-direction:alternate;
 }
 
+@keyframes pulse {
+  from {
+    transform: scale3d(1, 1, 1);
+  }
+
+  // 50% {
+  //   transform: scale3d(0.8, 0.8, 0.8);
+  // }
+
+  to {
+    transform: scale3d(0.95, 0.95, 0.95);
+  }
+}
+
+.pulse
+  animation-name: pulse;
 
 
 @keyframes slideInDown {
@@ -336,6 +352,11 @@ i {
   transition: ($duration)s
   animation-duration: ($duration)s
   animation-fill-mode:forwards;
+
+.animation-slow
+  transition: ($duration_slow)s 
+  animation-duration: ($duration_slow)s 
+
 .loading
   transition: filter ($duration)s 
   position relative

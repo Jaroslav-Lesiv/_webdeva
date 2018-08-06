@@ -1092,6 +1092,9 @@ i {
   animation-fill-mode: forwards;
   animation-direction: alternate;
 }
+.pulse {
+  animation-name: pulse;
+}
 .slideInDown {
   -webkit-animation-name: slideInDown;
   animation-name: slideInDown;
@@ -1216,6 +1219,10 @@ i {
   animation-duration: 0.4s;
   animation-fill-mode: forwards;
 }
+.animation-slow {
+  transition: 3s;
+  animation-duration: 3s;
+}
 .loading {
   transition: filter 0.4s;
   position: relative;
@@ -1245,6 +1252,38 @@ i {
   left: calc(50% - 50px);
   top: calc(50% - 50px);
   z-index: 2;
+}
+@-moz-keyframes pulse {
+  from {
+    transform: scale3d(1, 1, 1);
+  }
+  to {
+    transform: scale3d(0.95, 0.95, 0.95);
+  }
+}
+@-webkit-keyframes pulse {
+  from {
+    transform: scale3d(1, 1, 1);
+  }
+  to {
+    transform: scale3d(0.95, 0.95, 0.95);
+  }
+}
+@-o-keyframes pulse {
+  from {
+    transform: scale3d(1, 1, 1);
+  }
+  to {
+    transform: scale3d(0.95, 0.95, 0.95);
+  }
+}
+@keyframes pulse {
+  from {
+    transform: scale3d(1, 1, 1);
+  }
+  to {
+    transform: scale3d(0.95, 0.95, 0.95);
+  }
 }
 @-moz-keyframes slideInDown {
   from {
@@ -1918,7 +1957,7 @@ i {
 .service .plank {
   width: 100%;
   max-width: 600px;
-  flex-basis: 300px;
+  flex-basis: 400px;
   margin: 15px 10px;
   position: relative;
 }
