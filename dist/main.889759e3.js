@@ -572,7 +572,7 @@ var MobileControl = function () {
         key: "toggle",
         value: function toggle() {
             this.isActive = !this.isActive;
-            this.isActive ? this.main.classList.add('blur') : this.main.classList.remove('blur');
+            // this.isActive ? this.main.classList.add('blur') : this.main.classList.remove('blur')
             this.render();
         }
     }, {
@@ -1308,7 +1308,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = '' || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + '35633' + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + '34569' + '/');
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
 
