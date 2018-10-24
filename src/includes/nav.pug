@@ -1,6 +1,17 @@
 nav#nav.nav
     div.flex.flex-align-center.flex-column.flex-justify-column.nav-mobile
-        img.logo.mb-25(src="./img/avatar.png")
+        .logo-wrapper.mb-25
+            a(href="https://www.instagram.com/jaroslav_lesiv/", target="_blank").icon-button
+                img.contact-logo(src="./img/icon/instagram.png")
+            a(href="skype:jaroslav.webdeva?chat", target="_blank").icon-button
+                img.contact-logo(src="./img/icon/skype-primary.svg")
+            a(href="mailto:jaroslav.webdeva@gmail.com", target="_blank").icon-button
+                img.contact-logo(src="./img/icon/gmail-primary.svg")
+            a(href="https://telegram.me/Jaroslav_Lesiv", target="_blank").icon-button
+                img.contact-logo(src="./img/icon/telegram.png")
+            .logo
+                img(src="./img/me.png")
+
         ul.list
             li.list-item.flex.flex-justify-center
                 a.link.link-local.text-uppercase(href="#about").btn.btn-primary About

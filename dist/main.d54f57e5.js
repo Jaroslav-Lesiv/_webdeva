@@ -103,7 +103,7 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 
   // Override the current require with this new one
   return newRequire;
-})({27:[function(require,module,exports) {
+})({71:[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -113,11 +113,11 @@ exports.default = {
     secret: 'WCUj3/(iTn.Nw4M]ezy#DU5G&P/0Un',
     domain: 'https://still-journey-84385.herokuapp.com'
 };
-},{}],28:[function(require,module,exports) {
+},{}],68:[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
-  value: true
+    value: true
 });
 exports.http = exports.setStyle = exports.button = exports.img = exports.p = exports.h5 = exports.h4 = exports.h3 = exports.a = exports.strong = exports.li = exports.ul = exports.nav = exports.span = exports.div = undefined;
 
@@ -137,7 +137,7 @@ var secret = _config2.default.secret,
     domain = _config2.default.domain;
 
 var create = function create(tagname) {
-  return document.createElement(tagname);
+    return document.createElement(tagname);
 };
 
 var div = create("div");
@@ -155,86 +155,84 @@ var img = create("img");
 var button = create("button");
 
 var setStyle = function setStyle(selector) {
-  var styles = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+    var styles = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
 
-  console.log(styles);
-  var _iteratorNormalCompletion = true;
-  var _didIteratorError = false;
-  var _iteratorError = undefined;
+    console.log(styles);
+    var _iteratorNormalCompletion = true;
+    var _didIteratorError = false;
+    var _iteratorError = undefined;
 
-  try {
-    for (var _iterator = Object.entries(styles)[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
-      var _ref = _step.value;
-
-      var _ref2 = _slicedToArray(_ref, 2);
-
-      var key = _ref2[0];
-      var value = _ref2[1];
-
-      selector.style[key] = value;
-    }
-  } catch (err) {
-    _didIteratorError = true;
-    _iteratorError = err;
-  } finally {
     try {
-      if (!_iteratorNormalCompletion && _iterator.return) {
-        _iterator.return();
-      }
+        for (var _iterator = Object.entries(styles)[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+            var _ref = _step.value;
+
+            var _ref2 = _slicedToArray(_ref, 2);
+
+            var key = _ref2[0];
+            var value = _ref2[1];
+
+            selector.style[key] = value;
+        }
+    } catch (err) {
+        _didIteratorError = true;
+        _iteratorError = err;
     } finally {
-      if (_didIteratorError) {
-        throw _iteratorError;
-      }
+        try {
+            if (!_iteratorNormalCompletion && _iterator.return) {
+                _iterator.return();
+            }
+        } finally {
+            if (_didIteratorError) {
+                throw _iteratorError;
+            }
+        }
     }
-  }
 };
 
 var Http = function () {
-  function Http(_ref3) {
-    var secret = _ref3.secret,
-        domain = _ref3.domain;
+    function Http(_ref3) {
+        var secret = _ref3.secret,
+            domain = _ref3.domain;
 
-    _classCallCheck(this, Http);
+        _classCallCheck(this, Http);
 
-    this.secret = secret;
-    this.domain = domain;
-  }
-
-  _createClass(Http, [{
-    key: "post",
-    value: function post(_ref4) {
-      var data = _ref4.data,
-          success = _ref4.success,
-          error = _ref4.error,
-          url = _ref4.url,
-          _ref4$myDomain = _ref4.myDomain,
-          myDomain = _ref4$myDomain === undefined ? true : _ref4$myDomain;
-
-      var _url = myDomain ? this.domain + "/" + url : url;
-
-      var xhr = new XMLHttpRequest();
-
-      if (myDomain) data._secret = this.secret;
-
-      var json = JSON.stringify(data);
-
-      xhr.onreadystatechange = function () {
-        if (xhr.readyState == XMLHttpRequest.DONE && xhr.status == 200) {
-          success(xhr.response);
-        } else {
-          error();
-        }
-      };
-
-      // Отсылаем объект в формате JSON и с Content-Type application/json
-      // Сервер должен уметь такой Content-Type принимать и раскодировать
-      xhr.open("POST", _url, true);
-      xhr.setRequestHeader('Content-type', 'application/json; charset=utf-8');
-      xhr.send(json);
+        this.secret = secret;
+        this.domain = domain;
     }
-  }]);
 
-  return Http;
+    _createClass(Http, [{
+        key: "post",
+        value: function post(_ref4) {
+            var data = _ref4.data,
+                success = _ref4.success,
+                error = _ref4.error,
+                url = _ref4.url,
+                _ref4$myDomain = _ref4.myDomain,
+                myDomain = _ref4$myDomain === undefined ? true : _ref4$myDomain;
+
+            var _url = myDomain ? this.domain + "/" + url : url;
+
+            var xhr = new XMLHttpRequest();
+
+            if (myDomain) data._secret = this.secret;
+
+            var json = JSON.stringify(data);
+
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState == XMLHttpRequest.DONE && xhr.status == 200) {
+                    success(xhr.response);
+                }
+            };
+
+            // Отсылаем объект в формате JSON и с Content-Type application/json
+            // Сервер должен уметь такой Content-Type принимать и раскодировать
+            xhr.open("POST", _url, true);
+            xhr.setRequestHeader('Content-type', 'application/json; charset=utf-8');
+            xhr.send(json);
+        }
+    }]);
+
+    return Http;
 }();
 var http = new Http({ secret: secret, domain: domain });
 
@@ -253,7 +251,7 @@ exports.img = img;
 exports.button = button;
 exports.setStyle = setStyle;
 exports.http = http;
-},{"./config":27}],51:[function(require,module,exports) {
+},{"./config":71}],53:[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -374,7 +372,7 @@ var Notification = function () {
 
 var _notification = exports._notification = new Notification();
 window._notification = _notification;
-},{"../helper":28}],38:[function(require,module,exports) {
+},{"../helper":68}],50:[function(require,module,exports) {
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -435,7 +433,7 @@ var LazyLoad = function () {
 var lazy = new LazyLoad({
     images: loadImages
 });
-},{}],16:[function(require,module,exports) {
+},{}],52:[function(require,module,exports) {
 "use strict";
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -567,12 +565,14 @@ var MobileControl = function () {
         this.button.addEventListener('click', function () {
             return _this5.toggle();
         });
+        this.main = document.querySelector('.main');
     }
 
     _createClass(MobileControl, [{
         key: "toggle",
         value: function toggle() {
             this.isActive = !this.isActive;
+            // this.isActive ? this.main.classList.add('blur') : this.main.classList.remove('blur')
             this.render();
         }
     }, {
@@ -594,7 +594,7 @@ var MobileControl = function () {
 }();
 
 new MobileControl();
-},{"../helper":28}],40:[function(require,module,exports) {
+},{"../helper":68}],51:[function(require,module,exports) {
 'use strict';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -717,7 +717,7 @@ var textBracket = document.querySelector(".text-bracket");
 new TextBracket({
     selector: textBracket
 });
-},{"../helper":28}],42:[function(require,module,exports) {
+},{"../helper":68}],49:[function(require,module,exports) {
 'use strict';
 
 var _helper = require('../helper');
@@ -1049,7 +1049,7 @@ var _renderExamples = function _renderExamples(json) {
 };
 
 _renderExamples(data);
-},{"../helper":28,"../notification":51}],57:[function(require,module,exports) {
+},{"../helper":68,"../notification":53}],54:[function(require,module,exports) {
 'use strict';
 
 var _helper = require('../helper');
@@ -1071,14 +1071,21 @@ form.addEventListener('submit', function (event) {
         email: email,
         message: message
     };
+    form.classList.add('loading');
 
-    _helper.http.post({ data: data, url: 'message', success: function success() {
-            return _notification2._notification.add({ label: 'Message sending', mess: 'You messages sended seccessfull :)' });
-        }, error: function error() {
-            return _notification2._notification.add({ label: 'Message sending', mess: 'You messages not sended :(' });
-        } });
+    _helper.http.post({
+        data: data, url: 'message',
+        success: function success() {
+            _notification2._notification.add({ label: 'Message sending', mess: 'You messages sended seccessfull :)' });
+            form.classList.remove('loading');
+        },
+        error: function error() {
+            _notification2._notification.add({ label: 'Message sending', mess: 'You messages not sended :(' });
+            form.classList.remove('loading');
+        }
+    });
 });
-},{"../helper":28,"../notification":51}],36:[function(require,module,exports) {
+},{"../helper":68,"../notification":53}],37:[function(require,module,exports) {
 'use strict';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -1272,7 +1279,7 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 console.log([].concat(_toConsumableArray(document.querySelectorAll(".animated"))));
-},{"./notification":51,"./lazyLoad":38,"./navigation":16,"./textBracket":40,"./examples":42,"./contacts":57}],28:[function(require,module,exports) {
+},{"./notification":53,"./lazyLoad":50,"./navigation":52,"./textBracket":51,"./examples":49,"./contacts":54}],31:[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 
@@ -1301,7 +1308,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = '' || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + '11011' + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + '20465' + '/');
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
 
@@ -1442,5 +1449,5 @@ function hmrAccept(bundle, id) {
     return hmrAccept(global.parcelRequire, id);
   });
 }
-},{}]},{},[28,36], null)
+},{}]},{},[31,37], null)
 //# sourceMappingURL=/main.d54f57e5.map

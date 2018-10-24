@@ -88,6 +88,34 @@ const json = JSON.stringify({
             description: `Using: React, Redux, Webpack, recompose, styled-components, redux-saga`
         },
         {
+            label: `Cryptarena`,
+            url: `https://play.google.com/store/apps/details?id=com.codingchipmunks.cryptarena`,
+            sortKey: `mobile,react`,
+            img: `cryptarena.jpg`,
+            use: [{
+                    label: "React",
+                    url: "https://reactjs.org/"
+                },
+                {
+                    label: "ReactNative",
+                    url: "https://facebook.github.io/react-native/"
+                },
+                {
+                    label: "redux",
+                    url: "https://redux.js.org/"
+                },
+                {
+                    label: "redux-saga",
+                    url: "https://github.com/redux-saga/redux-saga"
+                },
+                {
+                    label: "webpack",
+                    url: "https://webpack.js.org/"
+                },
+            ],
+            description: `Crypto coin checker for Profit Calculate, Estimate Earning, Mining Pools, Mining Hardware, Mining Software`
+        },
+        {
             label: `JustLabelMe`,
             url: `https://just-label.me`,
             sortKey: `web`,

@@ -1,25 +1,17 @@
 Arguments: 
-  /home/jar/.nvm/versions/node/v10.6.0/bin/node /usr/share/yarn/bin/yarn.js add parcel-plugin-imagemin
+  C:\Program Files\nodejs\node.exe C:\Program Files (x86)\Yarn\bin\yarn.js start
 
 PATH: 
-  /home/jar/.nvm/versions/node/v10.6.0/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+  C:\Python27\;C:\Python27\Scripts;c:\program files\graphicsmagick-1.3.27-q16;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\Git\cmd;C:\Users\Jaros\AppData\Roaming\nvm;C:\Program Files\nodejs;C:\Program Files (x86)\Yarn\bin\;C:\Program Files (x86)\Windows Kits\8.1\Windows Performance Toolkit\;C:\ProgramData\ComposerSetup\bin;C:\ProgramData\chocolatey\bin;C:\Python27;C:\Program Files\nodejs\;C:\Program Files\Java\jdk1.8.0_172\bin;C:\OSPanel\modules\php\PHP-7.2-x64;C:\Users\Jaros\AppData\Local\Microsoft\WindowsApps;C:\Users\Jaros\AppData\Roaming\nvm;C:\Program Files\nodejs;C:\Users\Jaros\AppData\Local\Yarn\bin;C:\OSPanel\modules\php\PHP-7.1-x64;C:\Users\Jaros\AppData\Roaming\Composer\vendor\bin;C:\Program Files\heroku\bin;C:\Users\Jaros\AppData\Roaming\npm;C:\Users\Jaros\AppData\Local\hyper\app-2.0.0\resources\bin;C:\Program Files\Microsoft VS Code\bin;C:\OSPanel\modules\php\PHP-7.2-x64;
 
 Yarn version: 
-  1.7.0
+  1.5.1
 
 Node version: 
-  10.6.0
+  9.11.2
 
 Platform: 
-  linux x64
-
-Trace: 
-  SyntaxError: /home/jar/www/web/fun/package.json: Unexpected token } in JSON at position 410
-      at JSON.parse (<anonymous>)
-      at /usr/share/yarn/lib/cli.js:1130:59
-      at Generator.next (<anonymous>)
-      at step (/usr/share/yarn/lib/cli.js:98:30)
-      at /usr/share/yarn/lib/cli.js:109:13
+  win32 x64
 
 npm manifest: 
   {
@@ -37,7 +29,7 @@ npm manifest:
     "license": "ISC",
     "dependencies": {
       "gh-pages": "^1.2.0",
-      "parcel": "^1.9.2",
+      "parcel": "^1.9.2"
     },
     "devDependencies": {
       "axios": "^0.18.0",
@@ -6058,3 +6050,18 @@ Lockfile:
     dependencies:
       buffer-crc32 "~0.2.3"
       fd-slicer "~1.1.0"
+
+Trace: 
+  Error: Command failed.
+  Exit code: 3221225786
+  Command: C:\Windows\system32\cmd.exe
+  Arguments: /d /s /c parcel src/index.pug
+  Directory: C:\Users\Jaros\web\fun
+  Output:
+  
+      at ProcessTermError.MessageError (C:\Program Files (x86)\Yarn\lib\cli.js:186:110)
+      at new ProcessTermError (C:\Program Files (x86)\Yarn\lib\cli.js:226:113)
+      at ChildProcess.<anonymous> (C:\Program Files (x86)\Yarn\lib\cli.js:30281:17)
+      at ChildProcess.emit (events.js:180:13)
+      at maybeClose (internal/child_process.js:936:16)
+      at Process.ChildProcess._handle.onexit (internal/child_process.js:220:5)
