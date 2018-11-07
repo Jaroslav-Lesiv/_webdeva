@@ -4,7 +4,7 @@ import './lazyLoad'
 import './navigation'
 import './textBracket'
 // import './animation'
-import './examples'
+// import './examples'
 import './contacts'
 
 // import './http'

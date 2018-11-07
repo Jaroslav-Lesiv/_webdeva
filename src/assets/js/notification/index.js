@@ -14,6 +14,7 @@ import {
     button,
     setStyle
 } from '../helper'
+import {mail} from '../images'
 
 const NotificationBlock = div.cloneNode()
 setStyle(NotificationBlock, {
@@ -42,7 +43,7 @@ setStyle(NotificationContainer, {
 
 
 const icon = img.cloneNode()
-icon.src = './img/icon/mail.png'
+icon.src = mail
 setStyle(icon, {
     width: '35px',
     height: '35px',

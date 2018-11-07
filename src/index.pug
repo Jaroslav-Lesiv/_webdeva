@@ -1,26 +1,26 @@
 <!DOCTYPE html>
 html(lang="en")
-  include ./includes/head.pug
+  include ./parts/head.pug
   
   body
     //- #background.background
     .wrapper
-      include ./includes/nav.pug
+      include ./parts/nav.pug
       
       main.main
         section.section
           #particles-js.particles-js
           #about.container.flex-justify-sa.flex-align-center
-            include ./includes/about.pug
+            include ./parts/about.pug
         #skills.container.flex-align-center.flex-justify-sa.section-rotate.section-dark
-          include ./includes/skills.pug
+          include ./parts/skills.pug
         #examples.container.flex-align-top.flex-justify-sa
-          include ./includes/examples.pug
+          include ./parts/examples.pug
 
         #services.container.flex-align-center.flex-justify-sa.section-rotate.section-dark
-          include ./includes/services.pug
+          include ./parts/services.pug
         #contacts.container.flex-align-center.flex-justify-sa.contacts-wrapper
-            include ./includes/contacts.pug
+            include ./parts/contacts.pug
         
     script(src="assets/js/particles.js")
     script(src="assets/js/main.js")
