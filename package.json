@@ -6,7 +6,7 @@
   "scripts": {
     "watch": "parcel watch src/index.pug",
     "start": "parcel src/index.pug",
-    "production": "parcel build src/index.pug -d build",
+    "build": "parcel build src/index.pug -d build",
     "deploy": "node scripts/deploy"
   },
   "author": "Jaroslav_Lesiv",
