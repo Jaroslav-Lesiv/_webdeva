@@ -51,7 +51,6 @@ const LazyLoad = class {
 				.call(this.images)
 				.filter(image => image !== elem);
 		} else if (_bg) {
-            console.log(_bg, images[_bg])
 			elem.style.backgroundImage = `url(${images[_bg]}`;
 			this.images = Array.prototype.slice
 				.call(this.images)

@@ -1,112 +1,116 @@
-import {
-    div,
-    span,
-    nav,
-    ul,
-    li,
-    strong,
-    a,
-    h3,
-    p,
-    img,
-    button,
-    setStyle
-} from '../helper'
+const navLinks = document.querySelectorAll('#nav ul.list li a');
 
-
-const navLinks = document.querySelectorAll("#nav ul.list li a");
-
+function debounce(func, wait, immediate) {
+	var timeout;
+	return function() {
+		var context = this,
+			args = arguments;
+		var later = function() {
+			timeout = null;
+			if (!immediate) func.apply(context, args);
+		};
+		var callNow = immediate && !timeout;
+		clearTimeout(timeout);
+		timeout = setTimeout(later, wait);
+		if (callNow) func.apply(context, args);
+	};
+}
 const ScrollControl = class {
-    constructor({
-        links = []
-    }) {
-        this.hash = null;
+	constructor({ links = [] }) {
+		this.hash = window.location.pathname;
 
-        this.links = [...links].map(link => ({
-            selector: link,
-            hash: link.getAttribute("href")
-        }));
-        this.nodeList = [
-            ...this.links.map(link => ({
-                selector: document.querySelector(link.hash),
-                hash: link.hash
-            }))
-        ];
+		this.links = [...links].map(link => ({
+			node: link,
+			hash: link.getAttribute('href').replace('#', '/'),
+			selector: link.getAttribute('href').replace('/', '#'),
+			title: link.getAttribute('title')
+		}));
 
-        window.addEventListener("scroll", _ => this.sectionHandler());
-        this.linksHandler();
-    }
+		this.nodeList = [
+			...this.links.map(link => ({
+				node: document.querySelector(link.selector),
+				hash: link.hash
+			}))
+		];
 
-    sectionHandler() {
-        const windowHeight = document.documentElement.clientHeight;
-        for (let node of this.nodeList) {
-            const coords = node.selector.getBoundingClientRect();
-            const isCurrent = coords.top >= 0 || coords.bottom - 40 > 0;
-            if (isCurrent) {
-                this.hash = node.hash;
-                this.updateNavigation();
-                break;
-            }
-        }
-    }
+		window.addEventListener('scroll', _ => this.sectionHandler());
+		this.linksHandler();
+        this._updateNavigation = debounce(this.updateNavigation, 30);
+        if (this.hash && this.hash !== '/') this.updateSections()
+	}
 
-    linksHandler() {
-        this.links.forEach(link => {
-            link.selector.addEventListener("click", event => {
-                event.preventDefault();
-                this.hash = link.hash;
-                this.updateSections();
-            });
-        });
-    }
-    updateNavigation() {
-        this.links.forEach(
-            link =>
-            link.hash === this.hash ?
-            link.selector.classList.add("btn-primary") :
-            link.selector.classList.remove("btn-primary")
-        );
-    }
+	sectionHandler() {
+		for (let node of this.nodeList) {
+			const coords = node.node.getBoundingClientRect();
+			const isCurrent = coords.top >= 0 || coords.bottom - 40 > 0;
+			if (isCurrent) {
+				this.hash = node.hash;
+				this._updateNavigation();
+				break;
+			}
+		}
+	}
 
-    updateSections() {
-        window.scrollTo({
-            top: this.nodeList.find(node => node.hash === this.hash).selector
-                .offsetTop,
-            behavior: "smooth"
-        });
-    }
+	linksHandler() {
+		this.links.forEach(link => {
+			link.node.addEventListener('click', event => {
+				event.preventDefault();
+				this.hash = link.hash;
+				this.updateSections();
+			});
+		});
+	}
+
+	updateNavigation() {
+		this.links.forEach(link => {
+			if (link.hash === this.hash) {
+				link.node.classList.add('btn-primary');
+				const title = `WebDeva - ${link.title}`;
+				window.history.replaceState(null, null, link.hash);
+				window.document.title = title;
+			} else {
+				link.node.classList.remove('btn-primary');
+			}
+		});
+	}
+
+	updateSections() {
+		const node = this.nodeList.find(node => node.hash === this.hash).node;
+		window.scrollTo({
+			top: node.offsetTop,
+			behavior: 'smooth'
+		});
+	}
 };
+
 new ScrollControl({
-    links: navLinks
+	links: navLinks
 });
 
 const MobileControl = class {
-    constructor() {
-        this.isActive = false
-        this.button = document.querySelector('#nav-toggle_menu')
-        this.nav = document.querySelector('#nav')
-        this.button.addEventListener('click', () => this.toggle())
-        this.main = document.querySelector('.main')
-    }
+	constructor() {
+		this.isActive = false;
+		this.button = document.querySelector('#nav-toggle_menu');
+		this.nav = document.querySelector('#nav');
+		this.button.addEventListener('click', () => this.toggle());
+		this.main = document.querySelector('.main');
+	}
 
-    toggle() {
-        this.isActive = !this.isActive
-        // this.isActive ? this.main.classList.add('blur') : this.main.classList.remove('blur')
-        this.render()
-    }
+	toggle() {
+		this.isActive = !this.isActive;
+		// this.isActive ? this.main.classList.add('blur') : this.main.classList.remove('blur')
+		this.render();
+	}
 
-    render() {
-        if (this.isActive) {
-            this.button.classList.add('active')
-            this.nav.classList.add('active')
-            console.log(this.button, this.nav, 'true 222')
-        } else {
-            this.button.classList.remove('active')
-            this.nav.classList.remove('active')
-            console.log(this.button, this.nav,'false 333')
-        }
+	render() {
+		if (this.isActive) {
+			this.button.classList.add('active');
+			this.nav.classList.add('active');
+		} else {
+			this.button.classList.remove('active');
+			this.nav.classList.remove('active');
+		}
+	}
+};
 
-    }
-}
-
-new MobileControl()
+new MobileControl();

@@ -94,7 +94,6 @@ const TextBracket = class {
         this.update();
     }
     update() {
-        console.log(this.current, this.maxHeight)
         setStyle(this.wordSlider, {
             transform: `translateY(-${this.current * this.maxHeight}px)`
         })

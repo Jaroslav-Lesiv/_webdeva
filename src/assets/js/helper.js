@@ -17,7 +17,6 @@ const img = create("img");
 const button = create("button");
 
 const setStyle = (selector, styles = {}) => {
-    console.log(styles);
     for (let [key, value] of Object.entries(styles)) {
       selector.style[key] = value;
     }
